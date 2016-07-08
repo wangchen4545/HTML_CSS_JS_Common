@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>旋转的小圈</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; }
+
+        li {
+            list-style: none; }
+        .loading_6 {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            top: 50%;
+            left: 50%;
+            margin: -40px; }
+
+        @keyframes move6 {
+            0% {
+                transform: rotate(0deg); }
+            25% {
+                transform: rotate(90deg); }
+            50% {
+                transform: rotate(180deg); }
+            75% {
+                transform: rotate(270deg); }
+            100% {
+                transform: rotate(360deg); } }
+
+        .loading_6 li:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(60deg, transparent, rgba(53, 255, 174, 0.45) 65%, #35ffae 85%, #05961e 100%);
+            background: -webkit-linear-gradient(60deg, transparent, rgba(53, 255, 174, 0.45) 65%, #35ffae 85%, #05961e 100%);
+            animation: move6 0.8s linear 0s infinite;
+            -webkit-animation: move6 0.8s linear 0s infinite; }
+
+        .loading_6 li:nth-child(2) {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #ffffff; }
+    </style>
+</head>
+<body>
+    <!--同心圆旋转-->
+    <div class="loader">
+        <ul class="loading_6">
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模拟月亮日食</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; }
+
+        body{
+            background:#000000;
+        }
+        li {
+            list-style: none; }
+        @keyframes move7 {
+            0% {
+                left: 12px;
+                top: 0px; }
+            100% {
+                left: 90px;
+                top: 90px; } }
+        @keyframes move7_star {
+            0% {
+                transform: scale(0.5); }
+            100% {
+                transform: scale(0.2); } }
+        .loading_7:before {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+            width: 100px;
+            height: 100px;
+            background-color: #ff0;
+            border-radius: 100px; }
+
+        .loading_7:after {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 26px;
+            top: 0px;
+            width: 100px;
+            height: 100px;
+            background-color: #000;
+            border-radius: 100px;
+            animation: move7 3s linear 0s infinite;
+            -webkit-animation: move7 3s linear 0s infinite; }
+
+        .loading_7 .star {
+            position: absolute; }
+        .loading_7 .star:before {
+            content: "\2605";
+            display: block;
+            position: absolute;
+            left: 10px;
+            top: 20px;
+            width: 40px;
+            height: 40px;
+            color: #fff;
+            transform: scale(0.5);
+            -webkit-transform: scale(0.5);
+            animation: 1s move7_star linear infinite;
+            -webkit-animation: 1s move7_star linear infinite; }
+        .loading_7 .star:after {
+            content: "\2605";
+            display: block;
+            position: absolute;
+            left: 40px;
+            top: 120px;
+            width: 40px;
+            height: 40px;
+            color: #fff;
+            transform: scale(0.5);
+            -webkit-transform: scale(0.5);
+            animation: 1s move7_star linear infinite;
+            -webkit-animation: 1s move7_star linear infinite; }
+    </style>
+</head>
+<body>
+    <!--日食-->
+    <div class="loading_7">
+        <div class="star"></div>
+    </div>
+</body>
+</html>

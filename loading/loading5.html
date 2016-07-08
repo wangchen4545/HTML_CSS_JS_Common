@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>旋转的弧形</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; }
+
+        li {
+            list-style: none; }
+        .loading_5{
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            top: 50%;
+            left: 50%;
+            margin: -40px; }
+
+        @keyframes move5 {
+            0% {
+                transform: rotate(0deg); }
+            25% {
+                transform: rotate(90deg); }
+            50% {
+                transform: rotate(180deg); }
+            75% {
+                transform: rotate(270deg); }
+            100% {
+                transform: rotate(360deg); } }
+        .loading_5 li {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(transparent, transparent 75%, rgba(47, 233, 228, 0.92) 100%);
+            background: -webkit-linear-gradient(transparent, transparent 75%, rgba(47, 233, 228, 0.92) 100%);
+            background: -moz-linear-gradient(transparent, transparent 75%, rgba(47, 233, 228, 0.92) 100%);
+            background: -o-linear-gradient(transparent, transparent 75%, rgba(47, 233, 228, 0.92) 100%);
+            animation: move5 0.5s linear 0s infinite;
+            -webkit-animation: move5 0.5s linear 0s infinite; }
+    </style>
+</head>
+<body>
+    <!--旋转，rotate-->
+    <div class="loader">
+        <ul class="loading_5">
+            <li></li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小球逐个向后移动</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; }
+
+        li {
+            list-style: none; }
+
+        .loading_2 {
+            height: 20px;
+            width: 64px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -10px -32px; }
+
+        @keyframes move2 {
+            0% {
+                left: 80px;
+                top: 0; }
+            75% {
+                left: 0px;
+                top: 0px; }
+            85% {
+                left: 0px;
+                top: -16px; }
+            95% {
+                left: 80px;
+                top: -16px; }
+            100% {
+                left: 80px;
+                top: 0; } }
+        .loading_2 li {
+            position: absolute;
+            display: block;
+            width: 16px;
+            height: 16px;
+            text-align: center;
+            line-height: 16px;
+            border-radius: 50%;
+            background-color: rgba(27, 255, 204, 0.82); }
+
+        .loading_2 li:nth-child(1) {
+            animation: move2 2s linear 0s infinite;
+            -webkit-animation: move2 2s linear 0s infinite; }
+
+        .loading_2 li:nth-child(2) {
+            animation: move2 2s linear -0.4s infinite;
+            -webkit-animation: move2 2s linear -0.4s infinite; }
+
+        .loading_2 li:nth-child(3) {
+            animation: move2 2s linear -0.8s infinite;
+            -webkit-animation: move2 2s linear -0.8s infinite; }
+
+        .loading_2 li:nth-child(4) {
+            animation: move2 2s linear -1.2s infinite;
+            -webkit-animation: move2 2s linear -1.2s infinite; }
+
+        .loading_2 li:nth-child(5) {
+            animation: move2 2s linear -1.6s infinite;
+            -webkit-animation: move2 2s linear -1.6s infinite; }
+    </style>
+</head>
+<body>
+    <!--跳，left、top-->
+    <div class="loader">
+        <ul class="loading_2">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+</body>
+</html>
