@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .flex_flow1,.flex_flow2,.flex_flow3,.flex_flow,.flex_flow{
+               width: 300px;
+               height: 300px;
+           }
+        .flex_flow1 div,.flex_flow2 div,.flex_flow3 div,.wrap4 div,.wrap5 div{
+            width: 30px;
+            height: 30px;
+            background: #aaaaaa;
+            border: 1px solid #fff;
+        }
+        .flex_flow1{
+            display: flex;
+            flex-flow: row wrap;
+        }
+        .flex_flow2{
+            display: flex;
+            flex-flow: row;
+        }
+        .flex_flow3{
+            display: flex;
+            flex-flow: wrap;
+        }
+    </style>
+</head>
+<body>
+<h1></h1>
+<h1>flex_flow:direction || wrap（两个值）</h1>
+<h3>这个其实就是direction和wrap的简写 direction || wrap;给一个值也是完全可以的</h3>
+    <div class="flex_flow1">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+<h3>flex_flow:direction（一个值）</h3>
+<div class="flex_flow2">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+</div>
+<h3>flex_flow:wrap（一个值）</h3>
+<div class="flex_flow3">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .direction1,.direction2,.direction3,.direction4,.direction5{
+            width: 300px;
+            height: 300px;
+        }
+        .direction1 div,.direction2 div,.direction3 div,.direction4 div,.direction5 div{
+            width: 30px;
+            height: 30px;
+            background: #aaaaaa;
+            border: 1px solid #fff;
+        }
+        .direction1{
+            display: flex;
+            flex-direction:row;
+        }
+        .direction2{
+            display: flex;
+            flex-direction:row-reverse;
+        }
+        .direction3{
+            display: flex;
+            flex-direction:column;
+        }
+        .direction4{
+            display: flex;
+            flex-direction: column-reverse;
+        }
+    </style>
+</head>
+<body>
+
+<h1>direction:row</h1>
+<h3>注:如果子集加起来的宽度大于父级的宽度那么子集会按照平均分配来减小自己的宽度,子集最小的宽度是内容的宽度，也就是flex的优先级大于设置的宽度</h3>
+    <div class="direction1">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div><div>1</div>
+        <div>2</div>
+        <div>3</div><div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div><div>1</div>
+        <div>2</div>
+        <div>3</div><div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+<h1>direction:row-reverse;</h1>
+<h3>注：同上</h3>
+    <div class="direction2">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+<h1>direction:column;</h1>
+    <div class="direction3">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+<h1>direction:column-reverse;</h1>
+    <div class="direction4">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+</body>
+</html>

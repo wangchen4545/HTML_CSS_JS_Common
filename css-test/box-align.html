@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        .box1{
+            display:-webkit-box;
+            -webkit-box-align:start;
+            width:300px;
+            height:200px;
+            border:1px solid red;
+        }
+        .box1 .align_start{
+            width:50px;
+            height:50%;
+        }
+        .box1 .align_start1{
+            background:#666;
+        }
+        .box1 .align_start2{
+            background:#ccc;
+        }
+        .box1 .align_start3{
+            background:#333;
+        }
+        .box2{
+            width:300px;
+            height:200px;
+            display:-webkit-box;
+            -webkit-box-align:end;
+            border:1px solid red;
+        }
+        .box2 .align_end{
+            width:50px;
+            height:50%;
+        }
+        .box2 .align_end1{
+            background:#666;
+        }
+        .box2 .align_end2{
+            background:#ccc;
+        }
+        .box2 .align_end3{
+            background:#333;
+        }
+        .box3{
+            width:300px;
+            height:200px;
+            display:-webkit-box;
+            -webkit-box-align:center;
+            border:1px solid red;
+        }
+        .box3 .align_center{
+            width:50px;
+            height:50%;
+        }
+        .box3 .align_center1{
+            background:#666;
+        }
+        .box3 .align_center2{
+            background:#ccc;
+        }
+        .box3 .align_center3{
+            background:#333;
+        }
+        .box4{
+            width:300px;
+            height:200px;
+            display:-webkit-box;
+            -webkit-box-align:baseline;
+            border:1px solid red;
+        }
+        .box4 .align_baseline{
+            width:50px;
+            height:50%;
+        }
+        .box4 .align_baseline1{
+            background:#666;
+        }
+        .box4 .align_baseline2{
+            background:#ccc;
+        }
+        .box4 .align_baseline3{
+            background:#333;
+        }
+        .box5{
+            width:300px;
+            height:200px;
+            display:-webkit-box;
+            -webkit-box-align:stretch;
+            border:1px solid red;
+        }
+        .box5 .align_stretch{
+            width:50px;
+            /*竖排填充满*/
+        }
+        .box5 .align_stretch1{
+            background:#666;
+        }
+        .box5 .align_stretch2{
+            background:#ccc;
+        }
+        .box5 .align_stretch3{
+            background:#333;
+        }
+    </style>
+</head>
+<body>
+<h1>box-align:start</h1>
+    <div class="box1">
+        <div class="align_start align_start1">1</div>
+        <div class="align_start align_start2">2</div>
+        <div class="align_start align_start3">3</div>
+    </div>
+<h1>box-align:end</h1>
+<div class="box2">
+    <div class="align_end align_end1">1</div>
+    <div class="align_end align_end2">2</div>
+    <div class="align_end align_end3">3</div>
+</div>
+<h1>box-align:center</h1>
+<div class="box3">
+    <div class="align_center align_center1">1</div>
+    <div class="align_center align_center2">2</div>
+    <div class="align_center align_center3">3</div>
+</div>
+<h1>box-align:baseline</h1>
+<div class="box4">
+    <div class="align_baseline align_baseline1">1</div>
+    <div class="align_baseline align_baseline2">2</div>
+    <div class="align_baseline align_baseline3">3</div>
+</div>
+<h1>box-align:stretch</h1>
+<div class="box5">
+    <div class="align_stretch align_stretch1">1</div>
+    <div class="align_stretch align_stretch2">2</div>
+    <div class="align_stretch align_stretch3">3</div>
+</div>
+</body>
+</html>

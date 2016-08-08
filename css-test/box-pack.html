@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        html,body{
+            width:100%;
+            height:100%;
+        }
+        *{
+            padding:0;
+            margin: 0;
+            list-style:none;
+        }
+        .div1,.div2,.div3,.div4{
+            width:300px;
+            height:200px;
+            background:#222222;
+        }
+        .div1{
+            -webkit-box-pack:start;
+            display:-webkit-box;
+        }
+        .div1 .star{
+            width:40px;
+            height:100%;
+            background:#ccc;
+        }
+        .div1 .star1{
+            background:#666;
+        }
+        .div1 .star2{
+            background:#999;
+        }
+        .div2{
+            display:-webkit-box;
+            -webkit-box-pack:center;
+        }
+        .div2 .center{
+            width:40px;
+            height:100%;
+        }
+        .div2 .center1{
+            background:#666;
+        }
+        .div2 .center2{
+            background:#ccc;
+        }
+        .div2 .center3{
+            background:#999;
+        }
+        .div3{
+            display:-webkit-box;
+            -webkit-box-pack:end;
+        }
+        .div3 .end{
+            width:40px;
+            height:100%;
+        }
+        .div3 .end1{
+            background:#666;
+        }
+        .div3 .end2{
+            background:#ccc;
+        }
+        .div3 .end3{
+            background:#999;
+        }
+        .div4{
+            display:-webkit-box;
+            -webkit-box-pack:justify;
+
+        }
+        .div4 .justify{
+            width:40px;
+            height:100%;
+        }
+        .div4 .justify1{
+            background:#666;
+        }
+        .div4 .justify2{
+            background:#ccc;
+        }
+        .div4 .justify3{
+            background:#999;
+        }
+    </style>
+</head>
+<body>
+<h1>box-pack:start;</h1>
+<div class="div1">
+    <div class="star star1">1-1</div>
+    <div class="star star2">1-2</div>
+    <div class="star star3">1-2</div>
+</div>
+<h1>box-pack:center</h1>
+<div class="div2">
+    <div class="center center1">2-1</div>
+    <div class="center center2">2-2</div>
+    <div class="center center3">2-3</div>
+</div>
+<h1>box-pack:end</h1>
+<div class="div3">
+    <div class="end end1">3-1</div>
+    <div class="end end2">3-2</div>
+    <div class="end end3">3-3</div>
+</div>
+<h1>box-pack:justify</h1>
+<div class="div4">
+    <div class="justify justify1">4-1</div>
+    <div class="justify justify2">4-2</div>
+    <div class="justify justify3">4-3</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+@charset "utf-8";
+.positin{
+    position: absolute;/*绝对定位,相对于相对定位（绝对定位）如果没有相对定位合或绝对定位，是按照body来计算的，可以让行内元素编程块级元素*/
+    position: relative; /*相对定位，一般都会有绝对定位，不会进行定位但是有z-index属性*/
+    position: static;/*静态定位，如果用这个属性，你在赋值的时候left,right,top,bottom,是不管用的*/
+    position: fixed;/*固定定位，相对于你屏幕来计算的，ie6不支持这个属性，在apple touch里面有一定的支持性*/
+}
+.text{
+    text-align: center;/*设置文字位置，其他值left,right,center,同时也可以用作用于行内元素如span，a，i...*/
+    text-indent: 2em;/*设置段落第一行文字的缩进，一般会用单位 px，em，%*/
+    text-underline:none ;/*一般都会设置为none，其他值underline:文本下面,overline:文本下面，line-through：文字中间穿过*/
+    /*css3*/  text-shadow: 1px 1px 1px #000; /*设置文字阴影（x的偏移量，y的偏移量，模糊程度 颜色）其阴影可以叠加*/
+}
+.font{
+    font-size:12px;/*设置文字大小，单位有px，rem，em，%*/
+    line-height: 14px;/*设置行高，可以直接写值，不用加单位，但是不知道不加单位怎么算留着*/
+    font-family: "微软雅黑";/*设置字体*/
+    color: #000;/*设置字体颜色*/
+    font-weight: bold;/*设置粗体一般都会直接设置bold，也可以设置默认normal*/
+}
+.background{
+    background-image:url(../*/*/*.png) ;/*设置背景图案*/
+    background-position:top center;/*设置图案的排列方式值可以是,x(Y):top bottom left right cenger,也可以是%，或者px*/
+    background-repeat: no-repeat;/*设置背景重复方式，默认repeat，no-repeta repeat-y repeat-x*/
+    background-color: #000;/*设置背景颜色，可以是rgba rgb #000*/
+    background-attachment:scroll;/*规定了背景是否跟随，可以是fiexd ，inherit*/
+    /*css3*/  background-size: cover;/*设置背景大小，可以设置（x，y），cover(按比例来占满整个div不会失真),contain（会占满整个div会失真）*/
+    /*css3*/  background-origin:padding-box;/*规定了背景是在padding，content，border*/
+}
+.div{
+    width: 100px;/*设置盒模型的宽度，可以是px，%，rem，（百分比（%）：是按照父级来进行计算的），默认是100%，也可以设置auto*/
+    min-width: 100%;/*设置盒模型最小的宽度，单位同上*/
+    max-width: 100px;/*设置盒模型最大宽度，单位同上*/
+    height: 100px;/*设置和模型的高度，单位同上，默认是没有高度的，也可以设置auto，一般占满屏幕会用auto*/
+    min-height: 100px;/*死活就不太明白min-height有啥用*/
+    max-height: 100px;/*死活就不太明白min-height有啥用*/
+    display: inline;/*默认div是显示的*/
+    display: block;/*设置元素显示，也可以设置内联元素让他变成块级元素*/
+    display: inline-block;/*行内块元素，既能添加width，height这些属性又不会占正行，但是有bug，会有几像素的误差*/
+    /*css3(老版本)*/display:-webkit-box;/*声明这个盒子是弹性盒子*/
+    /*css3(老版本)*/webkit-box-flex:1;/*设置子集占比*/
+    /*css3(老版本)*/ -webkit-box-pack:center;/*用来确定，子集方向（横排） start(left),center,end(right),justify(平均分配)*/
+    /*css3(老版本)*/-webkit-box-align:center;/*用来确定，子集方向（竖排）start(top),center,end(bottom),baseline(top):注和start没啥区别，stretch(占满父级受height影响，height比这个优先级高)*/
+    /*css3(老版本)*/-webkit-box-direction:reverse;/*用来改变子集顺序 normal*/
+    /*css3(新版本)*/display:-webkit-flex;/*声明这个盒子是弹性盒子-wehbkit-flex:1*/
+    /*css3(新版本)*/-webkit-flex:1:/*设置子集占比*/
+     /*css3*/ -webkit-box-reflect: above 10px -webkit-linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.5));
+
+
+    /*css3(新版)*/display: -webkit-flex;/*设置div为弹性盒子*/
+    /*css3(新版)*/flex-direction: column; /*设置子盒子什么方向排列column:竖排column-reverse:反向竖排row:横排row-reverse:横排反向*/
+    /*css3(新版)*/flex-wrap: wrap;/*设置子盒子是否换行，但是当你有第二行的时候，第二行是在父级盒子的50%的位置来进行计算，wrap:换行nowrap:不换行，还有继承*/
+    /*css3(新版)*/flex-flow: row wrap;/*wrap和direction的简写，包涵wrap和direction的所有属性，也可以写单个值*/
+    /*css3(新版)*/justify-content:flex-start;/*参数有flex-start：左边，flex-end：右边开始，center：居中；space-between;左右不留空隙;space-around:平均分配左右留空隙*/
+    /*css3(新版)*/align-items: flex-start;/*设置垂直居中，参数有flex-start：上边;flex-end:下面开始center:居中；strecth:设置是占满父级高度，如果子集有高度则不会生效；baseline：设置字号基线对齐font-size*/
+    /*css3(新版)*/align-content: flex-start;/*设置子盒子有多行的排列方式，如果只有一行则不会起作用，参数有flex-start：上面flex-end:下面；center：居中；stretch；设置占满空间，但是子盒子有高度属性，则不会生效，space-around;被空白包围，space-between：中间留有空间*/
+    /*以上是设置子盒子（群组）*/
+    /*css3(新版)*/order:0;/*属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。可以给负值*/
+    /*css3(新版)*/flex-grow: 1;/*属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。*/
+    /*css3(新版)*/flex-shrink: 1;/*flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。*/
+    /*css3(新版)*/flex-basis: 100px;/*flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。*/
+    /*css3(新版)*/flex:1 100px 100px;/*flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。*/
+    /*css3(新版)*/align-self:flex-start;/*align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。*/
+
+             /*设置倒影第一个值一共四个，abover ,below,left,right 第二个是偏移量可以实用px rem em*/
+            /* 第三个值可以是渐变linear-gradient，radial-gradien,还有重复渐变，可以是图片url()*/
+    box-sizing: border-box;/*这个是改变和模型，默认是content-box,设置成border-box盒模型是由外向里缩得的*/
+    /*css3*/ box-shadow:1px 1px 1px 1px #000 ;
+    /*设置和模型的阴影，第一个值是x，y，模糊的距离，阴影的尺寸 最后一个值可以是inset，这个值是控制的是内阴影还是外阴影*/
+    
+
+}

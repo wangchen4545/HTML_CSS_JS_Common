@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .box1{
+            width: 300px;
+            height: 300px;
+            display: flex;
+            justify-content: flex-start;
+        }
+        .box1 div{
+            width: 50px;
+            height: 100%;
+        }
+        .box1 div:nth-child(1){
+            background: #666;
+        }
+        .box1 div:nth-child(2){
+            background: #ccc;
+        }
+        .box1 div:nth-child(3){
+            background: #999;
+        }
+        .box2{
+            width: 300px;
+            height: 300px;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .box2 div{
+            width: 30px;
+            height: 100%;
+        }
+        .box2 div:nth-child(1){
+            background: #666;
+        }
+        .box2 div:nth-child(2){
+            background: #ccc;
+        }
+        .box2 div:nth-child(3){
+            background: #999;
+        }
+        .box3{
+            width: 300px;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+        }
+        .box3 div{
+            width: 30px;
+            height: 100%;
+        }
+        .box3 div:nth-child(1){
+            background: #666;
+        }
+        .box3 div:nth-child(2){
+            background: #ccc;
+        }
+        .box3 div:nth-child(3){
+            background: #999;
+        }
+        .box4{
+            width: 300px;
+            height: 300px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .box4 div{
+            width: 30px;
+            height: 100%;
+        }
+        .box4 div:nth-child(1){
+            background: #666;
+        }
+        .box4 div:nth-child(2){
+            background: #ccc;
+        }
+        .box4 div:nth-child(3){
+            background: #999;
+        }
+        .box5{
+            width: 300px;
+            height: 300px;
+            display: flex;
+            justify-content: space-around;
+        }
+        .box5 div{
+            width: 30px;
+            height: 100%;
+        }
+        .box5 div:nth-child(1){
+            background: #666;
+        }
+        .box5 div:nth-child(2){
+            background: #ccc;
+        }
+        .box5 div:nth-child(3){
+            background: #999;
+        }
+    </style>
+</head>
+<body>
+<h1>justify-content:flex-start</h1>
+<div class="box1">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+</div>
+<h1>justify-content:flex-end;</h1>
+<div class="box2">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+</div>
+<h1>justify-content:center;</h1>
+<div class="box3">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+</div>
+<h1>justify-content:space-between;</h1>
+<div class="box4">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+</div>
+<h1>justify-content:space-around;</h1>
+<div class="box5">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+</div>
+</body>
+</html>

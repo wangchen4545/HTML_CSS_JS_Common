@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .wrap1,.wrap2,.wrap3,.wrap4,.wrap5{
+            width: 300px;
+            height: 300px;
+        }
+        .wrap1 div,.wrap2 div,.wrap3 div,.wrap4 div,.wrap5 div{
+            width: 30px;
+            height: 30px;
+            background: #aaaaaa;
+            border: 1px solid #fff;
+        }
+        .wrap1{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .wrap2{
+            display: flex;
+            flex-wrap: nowrap;
+        }
+        .wrap3{
+            display: flex;
+            flex-wrap: wrap-reverse;
+        }
+    </style>
+</head>
+<body>
+<h1>wrap:wrap</h1>
+<h3>注：这个不是float:left;只是看是否进行换行，类似与浮动，但是有一个重要的区别，每行的位置的开始 <br> <span style="color:red">(div_height/行数)=每行开始的位置</span></h3>
+    <div class="wrap1">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+        <div>11</div>
+        <div>12</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+        <div>11</div>
+        <div>12</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+        <div>11</div>
+        <div>12</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+        <div>11</div>
+        <div>12</div>
+    </div>
+<h1>wrap:nowrap</h1>
+    <div class="wrap2">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+<h1>wrap:wrap-reverse</h1>
+    <div class="wrap3">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+        <div>11</div>
+        <div>12</div>
+    </div>
+</body>
+</html>
