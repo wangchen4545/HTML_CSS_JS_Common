@@ -43,7 +43,7 @@
     /*css3(老版本)*/-webkit-box-align:center;/*用来确定，子集方向（竖排）start(top),center,end(bottom),baseline(top):注和start没啥区别，stretch(占满父级受height影响，height比这个优先级高)*/
     /*css3(老版本)*/-webkit-box-direction:reverse;/*用来改变子集顺序 normal*/
     /*css3(新版本)*/display:-webkit-flex;/*声明这个盒子是弹性盒子-wehbkit-flex:1*/
-    /*css3(新版本)*/-webkit-flex:1:/*设置子集占比*/
+    /*css3(新版本)*/-webkit-flex:1;/*设置子集占比*/
      /*css3*/ -webkit-box-reflect: above 10px -webkit-linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.5));
 
 
