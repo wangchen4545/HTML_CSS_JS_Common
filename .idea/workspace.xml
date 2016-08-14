@@ -43,7 +43,7 @@
       <file leaf-file-name="数组的解结构赋值.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ECMA6/数组的解结构赋值.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="509">
+            <state relative-caret-position="395">
               <caret line="59" column="21" selection-start-line="59" selection-start-column="21" selection-end-line="59" selection-end-column="21" />
               <folding />
             </state>
@@ -353,12 +353,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1470620798906</updated>
-      <workItem from="1471147815202" duration="6120000" />
+      <workItem from="1471147815202" duration="6184000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6120000" />
+    <option name="totallyTimeSpent" value="6184000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="52" width="869" height="982" extended-state="0" />
@@ -575,7 +575,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ECMA6/数组的解结构赋值.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="509">
+        <state relative-caret-position="395">
           <caret line="59" column="21" selection-start-line="59" selection-start-column="21" selection-end-line="59" selection-end-column="21" />
           <folding />
         </state>
