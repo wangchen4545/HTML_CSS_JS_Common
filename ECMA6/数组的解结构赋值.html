@@ -56,9 +56,17 @@
 
         /*
         *默认值可以引用解结构赋值但是一定要声明过的
-        *
+        *   想引用在上面定义过的 变量g是可以的，
+        *   同时赋值也是可以的
         * */
-        console.log(typeof j);
+
+        let [n=1]=[g];
+        console.log(n);
+        console.log(typeof n);
+
+        let [o=1,p=2]=[3,4];
+
+        console.log(o,p)
     </script>
 </head>
 <body>
