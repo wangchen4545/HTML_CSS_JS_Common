@@ -78,33 +78,60 @@ var animateJson={meanTime: (function(){
         }
     }
 })()};
-
+/** obj => 对象
+ * json => 需要改变的动画，以及动画的终点
+ * option => 可选参数 {time：过渡事件(ms),type:动画样式（Tween）}
+ * */
 function animate(obj,json,options,callBack){
-    //准备工作：统一requestAnimationFrame接口,兼容；
-    (function(){
-        var browser=['webkit','moz'];
-
-        for(var b=0;b<browser.length && window.requestAnimationFrame;b++){
-
-            window.requestAnimationFrame=window[browser[b]+'requestAnimationFrame'];
-
-            window.cancelAnimationFrame=window[browser[b]+'CancelAnimationFrame']||window[browser[b]+'CancelRequestAnimationFrame'];
-
-        }
-    })();
 
     var options=options||{};
         options.time= options.time||700;
-        options.type=options.type||'ease-in';
+        options.type=options.type||Tween.Quad.easeOut,
+        baseTransitionTime=30;
+
+    obj.timer=null;
 
     var start={},
         dis={},
-        count,
-        n= 0;
+        count=Math.ceil(options.time/baseTransitionTime),
+        n=0;
 
+    for(var json in name){
+        if(name=='opacity'){
+            start[name]=Math.round(parseFloat(getStyle(obj,name))*100);
+        }else{
+            start[name]=Math.parseInt(getStyle(obj,name));
+        }
+        dis[name]=json[name]-start[name];
+    }
 
+    clearTimeout(obj.timer);
 
+    obj.timer=setTimeout(this.anim);
 
+    this.anim=function(){
+
+        n++;
+
+        /*
+         * Tween.js
+         * t: current time（当前时间）；
+         * b: beginning value（初始值）；
+         * c: change in value（变化量）；
+         * d: duration（持续时间）。
+         * you can visit 'http://easings.net/zh-cn' to get effect
+         */
+
+        var cur=options.type(1000,json);
+
+        console.log(cur);
+
+        if(n>count){
+            clearTimeout(obj.timer);
+        }else{
+            obj.timer=setTimeout(this.anim);
+        }
+    };
 
 }
 
@@ -364,29 +391,29 @@ Math.tween = Tween;
 /* requestAnimationFrame.js
  * by zhangxinxu 2013-09-30
  */
-(function() {
-    var lastTime = 0;
-    var vendors = ['webkit', 'moz'];
-    for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-        window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
-        window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] ||    // name has changed in Webkit
-        window[vendors[x] + 'CancelRequestAnimationFrame'];
-    }
-
-    if (!window.requestAnimationFrame) {
-        window.requestAnimationFrame = function(callback, element) {
-            var currTime = new Date().getTime();
-            var timeToCall = Math.max(0, 16.7 - (currTime - lastTime));
-            var id = window.setTimeout(function() {
-                callback(currTime + timeToCall);
-            }, timeToCall);
-            lastTime = currTime + timeToCall;
-            return id;
-        };
-    }
-    if (!window.cancelAnimationFrame) {
-        window.cancelAnimationFrame = function(id) {
-            clearTimeout(id);
-        };
-    }
-}());
+//(function() {
+//    var lastTime = 0;
+//    var vendors = ['webkit', 'moz'];
+//    for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+//        window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
+//        window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] ||    // name has changed in Webkit
+//        window[vendors[x] + 'CancelRequestAnimationFrame'];
+//    }
+//
+//    if (!window.requestAnimationFrame) {
+//        window.requestAnimationFrame = function(callback, element) {
+//            var currTime = new Date().getTime();
+//            var timeToCall = Math.max(0, 16.7 - (currTime - lastTime));
+//            var id = window.setTimeout(function() {
+//                callback(currTime + timeToCall);
+//            }, timeToCall);
+//            lastTime = currTime + timeToCall;
+//            return id;
+//        };
+//    }
+//    if (!window.cancelAnimationFrame) {
+//        window.cancelAnimationFrame = function(id) {
+//            clearTimeout(id);
+//        };
+//    }
+//}());

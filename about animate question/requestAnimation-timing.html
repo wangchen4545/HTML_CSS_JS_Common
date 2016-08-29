@@ -16,65 +16,7 @@
         }
     </style>
 
-    <script>
-        /*这段代码源于网上
-        *自己尝试解读一下稍微看了一下感觉挺简单的，
-        * 但是由于本人数学不好感觉还是有点困难的,
-        *
-        * 这段代码是让requestAnimationFrame能控制时间，
-        * 很多时候都必须让某一个div在固定的时间上到固定的点上，
-        * 但是requestAnimationFrame只能控制刷新频率，并不能直接控制需要多长时间
-        * */
-        "use strict";
-        (function(){
-            var div =document.querySelector(".div1");
-            var div1=document.getElementsByClassName("div1");
-            var y = 0;
-            function getStep(totalstep, duration, t, dt, timing) {
-//                console.log(totalstep , duration , timing(t / duration) , dt);
-                return totalstep / duration * timing(t / duration) * dt;
 
-            }
-
-//            console.log(div1);
-            function movement(t, dt) {
-                var to = 1000,
-                    duration = 1000; // milliseconds
-                y += getStep(to, duration, t, dt, function(t) { return 2 * t });
-                y = Math.min(y, to);
-//                console.log(y);
-
-                div1[0].style.transform = "translate3d(0, " + y + "px, 0)";
-//            console.log(t);
-                return (y) < to;
-            }
-
-            requestAnimationFrame(function(t) {
-                console.log(t);
-                var t0 = t, t1 = 0;
-
-                requestAnimationFrame(function frame(t) {
-                    console.log(t);
-                    movement(t - t0, -t1 + (t1 = t)) && requestAnimationFrame(frame);
-                });
-            });
-        })();
-
-        /*模仿的就写在封闭空间里面了
-        * */
-
-        (function(){
-            var div2=document.querySelector(".div2");
-
-
-
-
-
-        })()
-
-
-
-    </script>
 </head>
 <body>
     <div class="div1">
@@ -82,5 +24,74 @@
     </div>
     <div class="div2">
     </div>
+    <script>
+        /*这段代码源于网上
+         *自己尝试解读一下稍微看了一下感觉挺简单的，
+         * 但是由于本人数学不好感觉还是有点困难的,
+         *
+         * 这段代码是让requestAnimationFrame能控制时间，
+         * 很多时候都必须让某一个div在固定的时间上到固定的点上，
+         * 但是requestAnimationFrame只能控制刷新频率，并不能直接控制需要多长时间
+         * */
+        "use strict";
+        (function(){
+            var div =document.querySelector(".div1");
+            var y = 0;
+//            function getStep(totalstep, duration, t, dt, timing) {
+////                console.log(totalstep , duration , timing(t / duration) , dt);
+//                return totalstep / duration * timing(t / duration) * dt;
+//
+//            }
+//
+////            console.log(div1);
+//            function movement(t, dt) {
+//                var to = 1000,
+//                        duration = 1000; // milliseconds
+//                y += getStep(to, duration, t, dt, function(t) { return 2 * t });
+//                y = Math.min(y, to);
+////                console.log(y);
+//
+//                div.style.transform = "translate3d(0, " + y + "px, 0)";
+////            console.log(t);
+//                return (y) < to;
+//            }
+
+            requestAnimationFrame(function(t) {
+                console.log(t);
+                return false
+//                var t0 = t, t1 = 0;
+//
+//                requestAnimationFrame(function frame(t) {
+//                    console.log(t);
+//                    movement(t - t0, -t1 + (t1 = t)) && requestAnimationFrame(frame);
+//                });
+            });
+        })();
+
+        /*模仿的就写在封闭空间里面了
+         * */
+
+        (function(){
+            var div2=document.querySelector(".div2");
+
+            function  move(){
+
+            };
+
+
+            window.requestAnimationFrame(function (t){
+
+
+
+                window.requestAnimationFrame(function frame(t){
+
+                });
+            })
+
+        })()
+
+
+
+    </script>
 </body>
 </html>
