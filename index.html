@@ -9,15 +9,46 @@
         window.onload=function(){
             var oDiv=document.querySelector(".div1");
 
-            oDiv.onclick=function(){
-                oDiv.classList.add('div2')
-            };
-            oDiv.addEventListener("webkitTransitionEnd",function(){
-                alert(11)
-            },false)
+//            oDiv.onclick=function(){
+//                oDiv.classList.add('div2')
+//            };
+//            oDiv.addEventListener("webkitTransitionEnd",function(){
+////                alert(11)
+//            },false)
         }
     </script>
+    <script>
+        "use strict";
 
+        var div = document.querySelector("div");
+
+        var y = 0;
+
+        function getStep(totalstep, duration, t, dt, timing) {
+            console.log(totalstep , duration , timing(t / duration) , dt)
+            return totalstep / duration * timing(t / duration) * dt;
+
+        }
+
+        function movement(t, dt) {
+            var to = 1000,
+                    duration = 707; // milliseconds
+
+            console.log(t,dt)
+            y += getStep(to, duration, t, dt, function(t) { return 2 * t });
+            y = Math.min(y, to);
+            div.style.webkittransform = "translate3d(0, " + y + "px, 0)";
+//            console.log(t);
+            return (y) < to;
+        }
+
+        requestAnimationFrame(function(t) {
+            var t0 = t, t1 = 0;
+            requestAnimationFrame(function frame(t) {
+                movement(t - t0, -t1 + (t1 = t)) && requestAnimationFrame(frame);
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="div1 css">
