@@ -38,46 +38,94 @@ function removeClass(obj,className){
         }
     }
 }
+//
+(function(win,doc){
 
-var animateJson={meanTime: (function(){
-    var lastTime= 0,
-        meanArr=[],
-        meanCount=10,
-        meanStar= 0,
-        timeResult=0;
-    function countFn(){
-        var currentTime=new Date().getTime(),
-            toTime=Math.max(0, 16.7 - (currentTime-lastTime));
+    var WCAnim=(function(){
+        var WCAnim=function(obj,json,options){
 
-        var TimeOutId=setTimeout(function(){
+            return new WCAnimate.animateFarime(obj,json,options);
 
-            if(meanStar>=meanCount){
+        };
+        WCAnimate={
+            animateFarime:function(obj,json,options){
+            /**
+            *   执行判断什么方法执行
+             *  也可以使用添加在dom上的自定义属性
+             *      data-animate-type,
+             *      data-animate-time,
+             *      data-animate-style[width,height,left,top],
+             * */
+            var browserData=WCAnimate.browser(),
+                attribute=WCAnim.getData();
 
-                clearTimeout(TimeOutId);
-                // 求平均数
-                meanFn();
+                if(browserData.isSenior){
+                    //this.()
+                }else{
 
-            }
-            lastTime=currentTime-lastTime;
+                }
+            },
+            browser:function(){
+                /**
+                *   主要是做兼容性处理高级浏览器，和IE的区别,
+                 *   我选择的是笨方法进行的处理
+                 *   ie9支持translate，但是不支持transition，
+                 *      所以放弃，使用left，top 来进行动画过渡
+                * */
+                var browserJSON={};
+                var browser=window.navigator.userAgent;
 
-            countFn();
+                //switch browser.test('')
+                //chrome:Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36
+                //360:Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36
+                //firefox:Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0
+                //ie9:Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E; InfoPath.3)
 
-            meanStar++;
+                if(browser.match(/Chrome/)){
 
-        },toTime);
+                    browserJSON.isSenior=true;
+                    browserJSON.name='-webkit-';
 
-        lastTime=toTime+currentTime;
+                }else if(browser.match(/Firefox/)){
 
-        function meanFn(){
+                    browserJSON.isSenior=true;
+                    browserJSON.name='-moz-';
 
-            for(var i=0;i<meanArr.length;i++){
-                timeResult+=meanArr[i];
-            }
+                }else if(browser.match(/MSIE/)){
 
-            return timeResult/meanCount
-        }
-    }
-})()};
+                    if(browser.match(/MSIE 9\.0/)){
+
+                        browserJSON.isSenior=false;
+                        browserJSON.name=undefined;
+
+                    }else if(browser.match(/MSIE 10/)){
+                        browserJSON.isSenior=true;
+                        browserJSON.name='';
+                    }else if(browser.match(/MSIE 11/)){
+                        browserJSON.isSenior=true;
+                        browserJSON.name='';
+                    }else{
+                        browserJSON.isSenior=false;
+                        browserJSON.name=undefined;
+                    }
+
+                }
+                console.log(browser.match(/MSIE 9\.0/));
+                console.log(browser.isSenior)
+                return browserJSON;
+            },
+            getData:function(){
+
+            },
+            extend:function(){}
+        };
+
+        return WCAnim;
+    })();
+    window.WCAnim=WCAnim;
+})(window,document);
+
+
 /** obj => 对象
  * json => 需要改变的动画，以及动画的终点
  * option => 可选参数 {time：过渡事件(ms),type:动画样式（Tween）}
@@ -86,33 +134,30 @@ function animate(obj,json,options,callBack){
 
     var options=options||{};
         options.time= options.time||700;
-        options.type=options.type||Tween.Quad.easeOut,
-        baseTransitionTime=30;
+        options.type=options.type || Tween.Cubic.easeIn,
+        baseTransitionTime=16;
 
     obj.timer=null;
-
     var start={},
         dis={},
         count=Math.ceil(options.time/baseTransitionTime),
         n=0;
 
-    for(var json in name){
+    for(var name in json){
         if(name=='opacity'){
             start[name]=Math.round(parseFloat(getStyle(obj,name))*100);
         }else{
-            start[name]=Math.parseInt(getStyle(obj,name));
+            start[name]=parseInt(getStyle(obj,name));
         }
         dis[name]=json[name]-start[name];
     }
 
     clearTimeout(obj.timer);
 
-    obj.timer=setTimeout(this.anim);
 
+    console.log(111);
     this.anim=function(){
-
         n++;
-
         /*
          * Tween.js
          * t: current time（当前时间）；
@@ -121,89 +166,31 @@ function animate(obj,json,options,callBack){
          * d: duration（持续时间）。
          * you can visit 'http://easings.net/zh-cn' to get effect
          */
+        // function(t, b, c, d)
+        for(var name in json){
 
-        var cur=options.type(1000,json);
+            var cur=options.type(n,start.width,dis.width,count);
+
+            if(name=='opacity'){
+                obj.style.opacity=cur;
+                obj.style.filter='alpha(opacity:'+cur+')'
+            }else{
+                obj.style[name]=cur+'px';
+            }
+        };
 
         console.log(cur);
 
-        if(n>count){
+        if(n>count-1){
             clearTimeout(obj.timer);
         }else{
-            obj.timer=setTimeout(this.anim);
+            obj.timer=setTimeout(this.anim,baseTransitionTime);
         }
+
     };
-
+    obj.timer=setTimeout(this.anim,baseTransitionTime);
 }
 
-
-
-
-function startMove(obj, json, options)
-{
-    options=options||{};
-    options.type=options.type||'ease-out';
-    options.time=options.time||300;
-
-    var start={};
-    var dis={};
-    var count=Math.ceil(options.time/30);
-    var n=0;
-
-    //
-    for(var name in json)
-    {
-        if(name=='opacity')
-        {
-            start[name]=Math.round(parseFloat(getStyle(obj, name))*100);
-        }
-        else
-        {
-            start[name]=parseInt(getStyle(obj, name));
-        }
-        dis[name]=json[name]-start[name];
-    }
-
-    clearInterval(obj.timer);
-    obj.timer=setInterval(function (){
-        n++;
-
-        for(var name in json)
-        {
-            var a=n/count;
-
-            switch(options.type)
-            {
-                case 'linear':
-                    var cur=start[name]+dis[name]*a;
-                    break;
-                case 'ease-in':
-                    var cur=start[name]+dis[name]*(a*a*a);
-                    break;
-                case 'ease-out':
-                    a=1-a;
-                    var cur=start[name]+dis[name]*(1-a*a*a);
-                    break;
-            }
-
-            if(name=='opacity')
-            {
-                obj.style.filter='alpha(opacity:'+cur+')';
-                obj.style.opacity=cur/100;
-            }
-            else
-            {
-                obj.style[name]=cur+'px';
-            }
-        }
-
-        if(n==count)
-        {
-            clearInterval(obj.timer);
-
-            options.end && options.end();
-        }
-    }, 30);
-}
 
 
 /*
@@ -212,7 +199,7 @@ function startMove(obj, json, options)
  * b: beginning value（初始值）；
  * c: change in value（变化量）；
  * d: duration（持续时间）。
- * you can visit 'http://easings.net/zh-cn' to get effect
+ * you can visit 'http://5easings.net/zh-cn' to get effect
  */
 var Tween = {
     Linear: function(t, b, c, d) {  return c*t/d + b; },

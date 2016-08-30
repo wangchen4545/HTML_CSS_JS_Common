@@ -17,56 +17,69 @@
 //            },false)
         }
     </script>
-    <script>
-        "use strict";
+    <!--<script>-->
+        <!--"use strict";-->
 
-        var div = document.querySelector("div");
+        <!--var div = document.querySelector("div");-->
 
-        var y = 0;
+        <!--var y = 0;-->
 
-        function getStep(totalstep, duration, t, dt, timing) {
-            console.log(totalstep , duration , timing(t / duration) , dt)
-            return totalstep / duration * timing(t / duration) * dt;
+        <!--function getStep(totalstep, duration, t, dt, timing) {-->
+            <!--console.log(totalstep , duration , timing(t / duration) , dt)-->
+            <!--return totalstep / duration * timing(t / duration) * dt;-->
 
-        }
+        <!--}-->
 
-        function movement(t, dt) {
-            var to = 1000,
-                    duration = 707; // milliseconds
+        <!--function movement(t, dt) {-->
+            <!--var to = 1000,-->
+                    <!--duration = 707; // milliseconds-->
 
-            console.log(t,dt)
-            y += getStep(to, duration, t, dt, function(t) { return 2 * t });
-            y = Math.min(y, to);
-            div.style.webkittransform = "translate3d(0, " + y + "px, 0)";
-//            console.log(t);
-            return (y) < to;
-        }
+            <!--console.log(t,dt)-->
+            <!--y += getStep(to, duration, t, dt, function(t) { return 2 * t });-->
+            <!--y = Math.min(y, to);-->
+            <!--div.style.webkittransform = "translate3d(0, " + y + "px, 0)";-->
+<!--//            console.log(t);-->
+            <!--return (y) < to;-->
+        <!--}-->
 
-        requestAnimationFrame(function(t) {
-            var t0 = t, t1 = 0;
-            requestAnimationFrame(function frame(t) {
-                movement(t - t0, -t1 + (t1 = t)) && requestAnimationFrame(frame);
-            });
-        });
-    </script>
+        <!--requestAnimationFrame(function(t) {-->
+            <!--var t0 = t, t1 = 0;-->
+            <!--requestAnimationFrame(function frame(t) {-->
+                <!--movement(t - t0, -t1 + (t1 = t)) && requestAnimationFrame(frame);-->
+            <!--});-->
+        <!--});-->
+    <!--</script>-->
+
 </head>
 <body>
-    <div class="div1 css">
+    <div class="div1 css" data-animate-type="Quad.easeIn">
 
     </div>
-
     <style>
         .div1{
             width: 300px;
             height: 200px;
-            transition: 0.3s opacity ease;
+            -ms-transition: 0.3s opacity ease;
             opacity: 0.5;
             background: #000;
+        }
+        .div1:hover{
+            -ms-transform: translate(100px,100px);
         }
         .div2{
             opacity: 1;
         }
     </style>
+    <script>
+        (function(){
+            var oDiv=document.querySelector(".div1");
 
+//            animate(oDiv,{width:900,height:900});
+//            console.log(WCAnim);
+            WCAnim(oDiv,{width:900,height:900});
+
+        })();
+
+    </script>
 </body>
 </html>
