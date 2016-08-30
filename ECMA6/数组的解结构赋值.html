@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        /*2016.8.12 时间创建*/
+        /*以前数组可以这样可以直接附指定值,
+        * 只是可以这样赋值，但是不能代表可以代替变量  数组当然也可以这样赋值*/
+        var a=['a'],
+            b=['b'],
+            c=['c'];
+        console.log(a,b,c,'以前的');
+        /*现在可以这样*/
+
+        var [d,e,f]=['d','e','f'];
+        console.log(a,b,c,'现在的');
+        /*只要两边的结构对等那么就会进行复制*/
+
+        /*如果最后的值没有，那么最后的变量值等于 'undefined' 并不会报错*/
+        var [g,h,i]=['g','h'];
+        console.log(g,h,i,'不对等');
+
+        /*这个赋值可以是*/
+        let [j,k]=['j','k'];
+        const [l,m]=['l','m'];
+
+        /*还有new set()，但是不甚了解，以后再补*/
+
+        /*  解构赋值 允许指定默认值，（就这么写）*/
+        /*注意如es6内部用严格模式，（===）所以如果有一个数组成员是 null 那么他就等于undefinde
+        *   也就是说使用null 和undefined都是可以让默认值生效
+        * */
+        var [x=1]=[null];
+        var [foo = true] = [false];
+        console.log(foo,'默认值');
+
+//        let [x, y = 'b'] = ['a']; // x='a', y='b'
+//        let [x, y = 'b'] = ['a', undefined]; // x='a', y
+
+        /*
+        * 如果一个变量是函数,因为是函数是惰性求所以在等于undefined才会执行函数
+        *   例子2
+        *      console.log("求证是否是惰性求职")这个函数并没有执行；
+        *       证明只有在值是undefined 的时候才会执行fun函数
+        * */
+        /*
+        * 例子1*/
+        let [z= fun(a)]=[b];
+        var fun=(a)=> {return a};
+        console.log(z)
+        /*例子2*/
+//        let [z= fun(a)]=[undefined];
+//        var fun=(a)=> {console.log('求证是否是惰性求值');return a};
+//        console.log(z)
+
+        /*
+        *默认值可以引用解结构赋值但是一定要声明过的
+        *   想引用在上面定义过的 变量g是可以的，
+        *   同时赋值也是可以的
+        * */
+
+        let [n=1]=[g];
+        console.log(n);
+        console.log(typeof n);
+
+        let [o=1,p=2]=[3,4];
+
+        console.log(o,p)
+    </script>
+</head>
+<body>
+
+</body>
+</html>

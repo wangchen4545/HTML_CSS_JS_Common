@@ -57,7 +57,7 @@ function removeClass(obj,className){
              *      data-animate-style[width,height,left,top],
              * */
             var browserData=WCAnimate.browser(),
-                attribute=WCAnim.getData();
+                attribute=WCAnim.getData(obj);
 
                 if(browserData.isSenior){
                     //this.()
