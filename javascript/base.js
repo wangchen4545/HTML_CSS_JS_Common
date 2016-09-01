@@ -39,15 +39,22 @@ function removeClass(obj,className){
     }
 }
 //
-(function(win,doc){
 
+
+(function(win,doc){
+    //var commonJson={
+    //    animateNode:null,
+    //    isSenior:null,
+    //    attributeData:null
+    //};
     var WCAnim=(function(){
         var WCAnim=function(obj,json,options){
 
-            return new WCAnimate.animateFarime(obj,json,options);
+            return new WCAnim.animateFarime(obj,json,options);
 
         };
-        WCAnimate={
+        WCAnim.fn=WCAnim.prototype={
+            constructor:WCAnim,
             animateFarime:function(obj,json,options){
             /**
             *   执行判断什么方法执行
@@ -56,23 +63,32 @@ function removeClass(obj,className){
              *      data-animate-time,
              *      data-animate-style[width,height,left,top],
              * */
-            var browserData=WCAnimate.browser(),
+                //WCAnimate.animateFarime.call(this,obj);
+            console.log(this);
+            WCAnim.init.call(this,obj);
+            /*var browserData=WCAnimate.browser(),
                 attribute=WCAnim.getData(obj);
 
                 if(browserData.isSenior){
-                    //this.()
+
                 }else{
 
-                }
+                }*/
+            },
+            init:function(){
+                console.log(this);
+                //commonJson.isSenior=this.browser();
+                //commonJson.animateNode=doc.querySelectorAll(obj);
+                //commonJson.attributeData=this.getData(commonJson.animateNode);
             },
             browser:function(){
                 /**
-                *   主要是做兼容性处理高级浏览器，和IE的区别,
+                 *   主要是做兼容性处理高级浏览器，和IE的区别,
                  *   我选择的是笨方法进行的处理
                  *   ie9支持translate，但是不支持transition，
                  *      所以放弃，使用left，top 来进行动画过渡
-                * */
-                var browserJSON={};
+                 * */
+                commonJson.browserJSON={};
                 var browser=window.navigator.userAgent;
 
                 //switch browser.test('')
@@ -110,12 +126,19 @@ function removeClass(obj,className){
                     }
 
                 }
-                console.log(browser.match(/MSIE 9\.0/));
-                console.log(browser.isSenior)
-                return browserJSON;
             },
-            getData:function(){
-
+            getData:function(obj){
+                /**
+                 * 仅支持 height，width,left,top
+                * */
+                var i = 0;
+                commonJson.attributeData={};
+                for(i;i<obj.length;i++){
+                    commonJson.attributeData.height=parseInt(obj[i].getAttribute("data-height"));
+                    commonJson.attributeData.left=parseInt(obj[i].getAttribute("data-height"));
+                    commonJson.attributeData.top=parseInt(obj[i].getAttribute("data-height"));
+                    commonJson.attributeData.width=parseInt(obj[i].getAttribute("data-height"));
+                }
             },
             extend:function(){}
         };
@@ -154,8 +177,6 @@ function animate(obj,json,options,callBack){
 
     clearTimeout(obj.timer);
 
-
-    console.log(111);
     this.anim=function(){
         n++;
         /*
@@ -370,37 +391,3 @@ var Tween = {
     }
 }
 Math.tween = Tween;
-
-
-
-
-
-/* requestAnimationFrame.js
- * by zhangxinxu 2013-09-30
- */
-//(function() {
-//    var lastTime = 0;
-//    var vendors = ['webkit', 'moz'];
-//    for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-//        window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
-//        window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] ||    // name has changed in Webkit
-//        window[vendors[x] + 'CancelRequestAnimationFrame'];
-//    }
-//
-//    if (!window.requestAnimationFrame) {
-//        window.requestAnimationFrame = function(callback, element) {
-//            var currTime = new Date().getTime();
-//            var timeToCall = Math.max(0, 16.7 - (currTime - lastTime));
-//            var id = window.setTimeout(function() {
-//                callback(currTime + timeToCall);
-//            }, timeToCall);
-//            lastTime = currTime + timeToCall;
-//            return id;
-//        };
-//    }
-//    if (!window.cancelAnimationFrame) {
-//        window.cancelAnimationFrame = function(id) {
-//            clearTimeout(id);
-//        };
-//    }
-//}());

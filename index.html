@@ -52,7 +52,7 @@
 
 </head>
 <body>
-    <div class="div1 css" data-animate-type="Quad.easeIn">
+    <div class="div1 css" data-animate-type="Quad.easeIn" data-width="300">
 
     </div>
     <style>
@@ -76,7 +76,22 @@
 
 //            animate(oDiv,{width:900,height:900});
 //            console.log(WCAnim);
-            WCAnim(oDiv,{width:900,height:900});
+//            ;
+            console.log(WCAnim)
+            console.log(oDiv.getAttribute('data-height'))
+
+            function show(){
+                show.index=1;
+
+                hide.call(this)
+            }
+            function hide(){
+                hide.index=1;
+                console.log(this);
+            }
+            var _new=new show();
+
+
 
         })();
 
