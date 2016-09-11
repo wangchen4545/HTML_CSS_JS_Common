@@ -261,21 +261,16 @@
         <option value="$PROJECT_DIR$/ECMA6/let.html" />
         <option value="$PROJECT_DIR$/ECMA6/对象.js" />
         <option value="$PROJECT_DIR$/ECMA6/数组.html" />
-<<<<<<< HEAD
         <option value="$PROJECT_DIR$/about animate question/requestAnimation-timing.html" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/javascript/base.js" />
-=======
         <option value="$PROJECT_DIR$/ECMA6/数组的解结构赋值.html" />
-<<<<<<< HEAD
         <option value="$PROJECT_DIR$/ECMA6/对象的解结构赋值.html" />
         <option value="$PROJECT_DIR$/javascript设计模式(test)/未经单decorator.js" />
         <option value="$PROJECT_DIR$/mode(test).html" />
         <option value="$PROJECT_DIR$/javascript设计模式(test)/construcror.js" />
         <option value="$PROJECT_DIR$/javascript设计模式(test)/construcrot/construcror.js" />
-=======
->>>>>>> dfa881984e5d669cd391b822b02a3994ff382412
->>>>>>> d9356ef36a2438d4892ac753c7abc3aac689f453
+
       </list>
     </option>
   </component>
@@ -420,15 +415,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-<<<<<<< HEAD
               <option name="myItemId" value="javascript设计模式(test)" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="construcrot" />
-=======
               <option name="myItemId" value="javascript" />
->>>>>>> d9356ef36a2438d4892ac753c7abc3aac689f453
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -442,11 +434,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-<<<<<<< HEAD
               <option name="myItemId" value="ECMA6" />
-=======
               <option name="myItemId" value="about animate question" />
->>>>>>> d9356ef36a2438d4892ac753c7abc3aac689f453
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -484,11 +473,8 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="js-jscs-nodeInterpreter" value="E:\installFile\node.exe" />
   </component>
-<<<<<<< HEAD
   <component name="RunManager" selected="JavaScript Debug.对象的解结构赋值.html">
     <configuration default="false" name="let.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:65227/HTML_CSS_JS_Common/ECMA6/let.html">
-=======
-<<<<<<< HEAD
   <component name="RunManager" selected="JavaScript Debug.index.html">
     <configuration default="false" name="index.html (2)" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:60329/HTML_CSS_JS_Common/index.html">
       <method />
@@ -497,14 +483,11 @@
       <method />
     </configuration>
     <configuration default="false" name="requestAnimation-timing.html (1)" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:56484/HTML_CSS_JS_Common/about animate question/requestAnimation-timing.html">
-=======
   <component name="RunManager" selected="JavaScript Debug.数组的解结构赋值.html">
     <configuration default="false" name="index.html (1)" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:65227/HTML_CSS_JS_Common/index.html">
->>>>>>> dfa881984e5d669cd391b822b02a3994ff382412
       <method />
     </configuration>
     <configuration default="false" name="requestAnimation-timing.html (2)" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:50280/HTML_CSS_JS_Common/about animate question/requestAnimation-timing.html">
->>>>>>> d9356ef36a2438d4892ac753c7abc3aac689f453
       <method />
     </configuration>
     <configuration default="false" name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:50280/HTML_CSS_JS_Common/index.html">
@@ -553,7 +536,6 @@
       <envs />
       <method />
     </configuration>
-<<<<<<< HEAD
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html (2)" />
       <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.requestAnimation-timing.html" />
@@ -568,7 +550,6 @@
         <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.requestAnimation-timing.html (1)" />
         <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.requestAnimation-timing.html" />
         <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.index.html (2)" />
-=======
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
       <command value="run-script" />
       <scripts />
@@ -598,20 +579,16 @@
     </list>
     <recent_temporary>
       <list size="5">
-<<<<<<< HEAD
         <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.对象的解结构赋值.html" />
         <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.数组的解结构赋值.html" />
         <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.数组.html (1)" />
         <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.数组.html" />
         <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.let.html" />
-=======
         <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.数组的解结构赋值.html" />
         <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.数组.html (1)" />
         <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.数组.html" />
         <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.let.html" />
         <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.index.html (1)" />
->>>>>>> dfa881984e5d669cd391b822b02a3994ff382412
->>>>>>> d9356ef36a2438d4892ac753c7abc3aac689f453
       </list>
     </recent_temporary>
   </component>
@@ -641,10 +618,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-<<<<<<< HEAD
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2515625" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
-=======
-<<<<<<< HEAD
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25208333" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -681,9 +655,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-=======
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2520516" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
->>>>>>> d9356ef36a2438d4892ac753c7abc3aac689f453
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982087" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -719,7 +691,6 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
->>>>>>> dfa881984e5d669cd391b822b02a3994ff382412
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -757,12 +728,9 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
-<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/ECMA6/数组.html" />
-=======
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0">
           <caret line="50" column="13" selection-start-line="19" selection-start-column="4" selection-end-line="50" selection-end-column="13" />
           <folding />
@@ -797,17 +765,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-=======
         <state relative-caret-position="570">
           <caret line="30" column="42" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
->>>>>>> dfa881984e5d669cd391b822b02a3994ff382412
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ECMA6/const.js">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0">
           <caret line="86" column="47" selection-start-line="86" selection-start-column="47" selection-end-line="86" selection-end-column="47" />
           <folding>
@@ -829,7 +794,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
-=======
         <state relative-caret-position="1121">
           <caret line="59" column="40" selection-start-line="59" selection-start-column="40" selection-end-line="59" selection-end-column="40" />
           <folding />
@@ -840,31 +804,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
->>>>>>> dfa881984e5d669cd391b822b02a3994ff382412
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="50" column="13" selection-start-line="19" selection-start-column="4" selection-end-line="50" selection-end-column="13" />
-=======
->>>>>>> d9356ef36a2438d4892ac753c7abc3aac689f453
     <entry file="file://$PROJECT_DIR$/ECMA6/对象.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-<<<<<<< HEAD
-=======
->>>>>>> dfa881984e5d669cd391b822b02a3994ff382412
           <folding />
->>>>>>> d9356ef36a2438d4892ac753c7abc3aac689f453
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/about animate question/requestAnimation-timing.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -877,7 +832,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="82" column="33" selection-start-line="82" selection-start-column="33" selection-end-line="82" selection-end-column="33" />
-=======
     <entry file="file://$PROJECT_DIR$/javascript/base.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1596">
@@ -892,12 +846,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
->>>>>>> dfa881984e5d669cd391b822b02a3994ff382412
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/ECMA6/数组.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -910,7 +862,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-=======
     <entry file="file://$PROJECT_DIR$/javascript/base.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -930,30 +881,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
->>>>>>> dfa881984e5d669cd391b822b02a3994ff382412
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/javascript/base.js">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0">
           <caret line="86" column="47" selection-start-line="86" selection-start-column="47" selection-end-line="86" selection-end-column="47" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <marker date="1472549962775" expanded="true" signature="5326:5502" placeholder="..." />
-=======
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
->>>>>>> dfa881984e5d669cd391b822b02a3994ff382412
           </folding>
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
     <entry file="file://$USER_HOME$/Desktop/Ani.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1045,7 +991,6 @@
             <element signature="n#!!doc" expanded="true" />
             <marker date="1472549962775" expanded="true" signature="5326:5502" placeholder="..." />
           </folding>
-=======
     <entry file="file://$USER_HOME$/Desktop/zhangxinxu/requestAnimationFrame实现皮球落地的缓动效果 » 张鑫旭-鑫空间-鑫生活.html" />
     <entry file="file://D:/study/baseJS/jquery.js" />
     <entry file="file://$USER_HOME$/Desktop/zhangxinxu/sur/tween.js" />
@@ -1093,13 +1038,11 @@
         <state relative-caret-position="570">
           <caret line="30" column="42" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
           <folding />
->>>>>>> dfa881984e5d669cd391b822b02a3994ff382412
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ECMA6/const.js">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
@@ -1118,9 +1061,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
-=======
         <state relative-caret-position="19">
-<<<<<<< HEAD
           <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
           <folding />
         </state>
@@ -1138,43 +1079,31 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
-=======
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
->>>>>>> dfa881984e5d669cd391b822b02a3994ff382412
->>>>>>> d9356ef36a2438d4892ac753c7abc3aac689f453
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/javascript/base.js">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
         <state relative-caret-position="884">
-=======
-<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <marker date="1472549962775" expanded="true" signature="5326:5502" placeholder="..." />
-=======
         <state relative-caret-position="190">
->>>>>>> d9356ef36a2438d4892ac753c7abc3aac689f453
           <caret line="95" column="28" selection-start-line="95" selection-start-column="28" selection-end-line="95" selection-end-column="28" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
->>>>>>> dfa881984e5d669cd391b822b02a3994ff382412
           </folding>
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/javascript设计模式(test)/未经单decorator.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-=======
-<<<<<<< HEAD
     <entry file="file://D:/study/baseJS/jquery.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1216,17 +1145,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
->>>>>>> d9356ef36a2438d4892ac753c7abc3aac689f453
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/javascript设计模式(test)/construcror.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-=======
     <entry file="file://$PROJECT_DIR$/ECMA6/数组.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.44444445">
@@ -1239,13 +1165,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
-=======
     <entry file="file://$PROJECT_DIR$/ECMA6/数组.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
->>>>>>> dfa881984e5d669cd391b822b02a3994ff382412
->>>>>>> d9356ef36a2438d4892ac753c7abc3aac689f453
           <folding />
         </state>
       </provider>
@@ -1267,16 +1190,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-=======
         <state relative-caret-position="247">
           <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
->>>>>>> dfa881984e5d669cd391b822b02a3994ff382412
->>>>>>> d9356ef36a2438d4892ac753c7abc3aac689f453
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/javascript设计模式(test)/construcrot/construcror.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="166">
@@ -1393,19 +1312,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-=======
-<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/about animate question/requestAnimation-timing.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.4444447">
           <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-=======
     <entry file="file://$PROJECT_DIR$/ECMA6/数组的解结构赋值.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="395">
           <caret line="59" column="21" selection-start-line="59" selection-start-column="21" selection-end-line="59" selection-end-column="21" />
->>>>>>> dfa881984e5d669cd391b822b02a3994ff382412
->>>>>>> d9356ef36a2438d4892ac753c7abc3aac689f453
           <folding />
         </state>
       </provider>
