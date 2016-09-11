@@ -38,145 +38,180 @@ function removeClass(obj,className){
         }
     }
 }
+//
 
-var animateJson={meanTime: (function(){
-    var lastTime= 0,
-        meanArr=[],
-        meanCount=10,
-        meanStar= 0,
-        timeResult=0;
-    function countFn(){
-        var currentTime=new Date().getTime(),
-            toTime=Math.max(0, 16.7 - (currentTime-lastTime));
 
-        var TimeOutId=setTimeout(function(){
+(function(win,doc){
+    //var commonJson={
+    //    animateNode:null,
+    //    isSenior:null,
+    //    attributeData:null
+    //};
+    var WCAnim=(function(){
+        var WCAnim=function(obj,json,options){
 
-            if(meanStar>=meanCount){
+            return new WCAnim.animateFarime(obj,json,options);
 
-                clearTimeout(TimeOutId);
-                // 求平均数
-                meanFn();
+        };
+        WCAnim.fn=WCAnim.prototype={
+            constructor:WCAnim,
+            animateFarime:function(obj,json,options){
+            /**
+            *   执行判断什么方法执行
+             *  也可以使用添加在dom上的自定义属性
+             *      data-animate-type,
+             *      data-animate-time,
+             *      data-animate-style[width,height,left,top],
+             * */
+                //WCAnimate.animateFarime.call(this,obj);
+            console.log(this);
+            WCAnim.init.call(this,obj);
+            /*var browserData=WCAnimate.browser(),
+                attribute=WCAnim.getData(obj);
 
-            }
-            lastTime=currentTime-lastTime;
+                if(browserData.isSenior){
 
-            countFn();
+                }else{
 
-            meanStar++;
+                }*/
+            },
+            init:function(){
+                console.log(this);
+                //commonJson.isSenior=this.browser();
+                //commonJson.animateNode=doc.querySelectorAll(obj);
+                //commonJson.attributeData=this.getData(commonJson.animateNode);
+            },
+            browser:function(){
+                /**
+                 *   主要是做兼容性处理高级浏览器，和IE的区别,
+                 *   我选择的是笨方法进行的处理
+                 *   ie9支持translate，但是不支持transition，
+                 *      所以放弃，使用left，top 来进行动画过渡
+                 * */
+                commonJson.browserJSON={};
+                var browser=window.navigator.userAgent;
 
-        },toTime);
+                //switch browser.test('')
+                //chrome:Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36
+                //360:Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36
+                //firefox:Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0
+                //ie9:Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E; InfoPath.3)
 
-        lastTime=toTime+currentTime;
+                if(browser.match(/Chrome/)){
 
-        function meanFn(){
+                    browserJSON.isSenior=true;
+                    browserJSON.name='-webkit-';
 
-            for(var i=0;i<meanArr.length;i++){
-                timeResult+=meanArr[i];
-            }
+                }else if(browser.match(/Firefox/)){
 
-            return timeResult/meanCount
-        }
-    }
-})()};
+                    browserJSON.isSenior=true;
+                    browserJSON.name='-moz-';
 
-function animate(obj,json,options,callBack){
-    //准备工作：统一requestAnimationFrame接口,兼容；
-    (function(){
-        var browser=['webkit','moz'];
+                }else if(browser.match(/MSIE/)){
 
-        for(var b=0;b<browser.length && window.requestAnimationFrame;b++){
+                    if(browser.match(/MSIE 9\.0/)){
 
-            window.requestAnimationFrame=window[browser[b]+'requestAnimationFrame'];
+                        browserJSON.isSenior=false;
+                        browserJSON.name=undefined;
 
-            window.cancelAnimationFrame=window[browser[b]+'CancelAnimationFrame']||window[browser[b]+'CancelRequestAnimationFrame'];
+                    }else if(browser.match(/MSIE 10/)){
+                        browserJSON.isSenior=true;
+                        browserJSON.name='';
+                    }else if(browser.match(/MSIE 11/)){
+                        browserJSON.isSenior=true;
+                        browserJSON.name='';
+                    }else{
+                        browserJSON.isSenior=false;
+                        browserJSON.name=undefined;
+                    }
 
-        }
+                }
+            },
+            getData:function(obj){
+                /**
+                 * 仅支持 height，width,left,top
+                * */
+                var i = 0;
+                commonJson.attributeData={};
+                for(i;i<obj.length;i++){
+                    commonJson.attributeData.height=parseInt(obj[i].getAttribute("data-height"));
+                    commonJson.attributeData.left=parseInt(obj[i].getAttribute("data-height"));
+                    commonJson.attributeData.top=parseInt(obj[i].getAttribute("data-height"));
+                    commonJson.attributeData.width=parseInt(obj[i].getAttribute("data-height"));
+                }
+            },
+            extend:function(){}
+        };
+
+        return WCAnim;
     })();
+    window.WCAnim=WCAnim;
+})(window,document);
+
+
+/** obj => 对象
+ * json => 需要改变的动画，以及动画的终点
+ * option => 可选参数 {time：过渡事件(ms),type:动画样式（Tween）}
+ * */
+function animate(obj,json,options,callBack){
 
     var options=options||{};
         options.time= options.time||700;
-        options.type=options.type||'ease-in';
+        options.type=options.type || Tween.Cubic.easeIn,
+        baseTransitionTime=16;
 
+    obj.timer=null;
     var start={},
         dis={},
-        count,
-        n= 0;
+        count=Math.ceil(options.time/baseTransitionTime),
+        n=0;
 
-
-
-
-
-}
-
-
-
-
-function startMove(obj, json, options)
-{
-    options=options||{};
-    options.type=options.type||'ease-out';
-    options.time=options.time||300;
-
-    var start={};
-    var dis={};
-    var count=Math.ceil(options.time/30);
-    var n=0;
-
-    //
-    for(var name in json)
-    {
-        if(name=='opacity')
-        {
-            start[name]=Math.round(parseFloat(getStyle(obj, name))*100);
-        }
-        else
-        {
-            start[name]=parseInt(getStyle(obj, name));
+    for(var name in json){
+        if(name=='opacity'){
+            start[name]=Math.round(parseFloat(getStyle(obj,name))*100);
+        }else{
+            start[name]=parseInt(getStyle(obj,name));
         }
         dis[name]=json[name]-start[name];
     }
 
-    clearInterval(obj.timer);
-    obj.timer=setInterval(function (){
+    clearTimeout(obj.timer);
+
+    this.anim=function(){
         n++;
+        /*
+         * Tween.js
+         * t: current time（当前时间）；
+         * b: beginning value（初始值）；
+         * c: change in value（变化量）；
+         * d: duration（持续时间）。
+         * you can visit 'http://easings.net/zh-cn' to get effect
+         */
+        // function(t, b, c, d)
+        for(var name in json){
 
-        for(var name in json)
-        {
-            var a=n/count;
+            var cur=options.type(n,start.width,dis.width,count);
 
-            switch(options.type)
-            {
-                case 'linear':
-                    var cur=start[name]+dis[name]*a;
-                    break;
-                case 'ease-in':
-                    var cur=start[name]+dis[name]*(a*a*a);
-                    break;
-                case 'ease-out':
-                    a=1-a;
-                    var cur=start[name]+dis[name]*(1-a*a*a);
-                    break;
-            }
-
-            if(name=='opacity')
-            {
-                obj.style.filter='alpha(opacity:'+cur+')';
-                obj.style.opacity=cur/100;
-            }
-            else
-            {
+            if(name=='opacity'){
+                obj.style.opacity=cur;
+                obj.style.filter='alpha(opacity:'+cur+')'
+            }else{
                 obj.style[name]=cur+'px';
             }
+        };
+
+        console.log(cur);
+
+        if(n>count-1){
+            clearTimeout(obj.timer);
+        }else{
+            obj.timer=setTimeout(this.anim,baseTransitionTime);
         }
 
-        if(n==count)
-        {
-            clearInterval(obj.timer);
-
-            options.end && options.end();
-        }
-    }, 30);
+    };
+    obj.timer=setTimeout(this.anim,baseTransitionTime);
 }
+
 
 
 /*
@@ -185,7 +220,7 @@ function startMove(obj, json, options)
  * b: beginning value（初始值）；
  * c: change in value（变化量）；
  * d: duration（持续时间）。
- * you can visit 'http://easings.net/zh-cn' to get effect
+ * you can visit 'http://5easings.net/zh-cn' to get effect
  */
 var Tween = {
     Linear: function(t, b, c, d) {  return c*t/d + b; },
@@ -356,37 +391,3 @@ var Tween = {
     }
 }
 Math.tween = Tween;
-
-
-
-
-
-/* requestAnimationFrame.js
- * by zhangxinxu 2013-09-30
- */
-(function() {
-    var lastTime = 0;
-    var vendors = ['webkit', 'moz'];
-    for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-        window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
-        window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] ||    // name has changed in Webkit
-        window[vendors[x] + 'CancelRequestAnimationFrame'];
-    }
-
-    if (!window.requestAnimationFrame) {
-        window.requestAnimationFrame = function(callback, element) {
-            var currTime = new Date().getTime();
-            var timeToCall = Math.max(0, 16.7 - (currTime - lastTime));
-            var id = window.setTimeout(function() {
-                callback(currTime + timeToCall);
-            }, timeToCall);
-            lastTime = currTime + timeToCall;
-            return id;
-        };
-    }
-    if (!window.cancelAnimationFrame) {
-        window.cancelAnimationFrame = function(id) {
-            clearTimeout(id);
-        };
-    }
-}());
