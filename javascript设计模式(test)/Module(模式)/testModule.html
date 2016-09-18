@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /**
+        *   这种方法只有incrementCounter，resetCounter才能访问这个数字，
+         *   其他代码无法访问
+        * */
+        var testModule=(function(){
+            var counter=0;
+            return {
+                incrementCunter:function(){
+                    return ++counter;
+                },
+                resetCounter:function(){
+                    console.log(counter);
+                    counter = 0;
+                    console.log(counter)
+                }
+            }
+        })();
+        testModule.incrementCunter();
+        testModule.resetCounter();
+
+        /**/
+    </script>
+</head>
+<body>
+
+</body>
+</html>

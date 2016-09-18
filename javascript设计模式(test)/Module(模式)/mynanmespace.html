@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var myNameSpace=(function(){
+            var mypPrivateVar=0;
+            var myPrivateMethod=function(foo){
+                console.log(foo);
+            };
+            return {
+//                公有变量
+                myPublicVar:"foo",
+//                调用私有变量和方法的公有函数
+                myPublicFunction:function(bar){
+//                    增加私有计数器值
+                    mypPrivateVar++;
+//                    调用私有方法；
+                    myPrivateMethod(bra)
+                }
+            }
+        })();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
