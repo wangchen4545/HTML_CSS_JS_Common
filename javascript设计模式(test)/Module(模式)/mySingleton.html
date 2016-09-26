@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*singleton模式实在改实例不存在的情况下，
+        可以通过一个方法创建一个类来实现创建类的新实例，
+        不同于其他静态类，（对象）因为可以推迟他们的初始化，
+        这通常是因为他们需要一些其他信息，而这些信息在初始化无法获得，
+        对于没有察觉到之前的引用代码，他们不会提供方便检索的代码，
+        这是因为它既不是对象，也不是由一个Singleton 返回的类，他是一个结构，
+        而提供闭包的函数作用域是闭包，在javascript中Singleton充当共享资源命名空间，
+        从全局命名空间中隔离出代码实现，从而为函数提供单一访问点*/
+        var mySingleton=(function(){
+            var instance;
+            function init(){
+                function privateMethod(){
+                    console.log("private");
+                }
+                var privateVariable="also private";
+                var privateRandomNumbuer=Math.random();
+
+                return {
+                    publicMethod:function(){
+                        console.log("the public can see me!");
+                    },
+                    publicProperty:"I am also public",
+                    getRandomNumber:function (){
+                        return privateRandomNumbuer
+                    }
+                }
+            };
+            return {
+                getInstance:function(){
+                    if(!instance){
+                        console.log(init())
+                        instance=init()
+                    }
+                    return instance
+                }
+            }
+        })();
+
+        console.log(mySingleton.getInstance().getRandomNumber())
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var myRevealingModule=function(){
+            console.log(this)
+            var privateVar="css",
+                    publicVar="hello",
+                    publicName=null;
+            function privateFunction(){
+                console.log("css"+privateVar);
+            }
+            function publicSetName(strName){
+                privateVar=strName;
+            }
+            function publicGetName(){
+                privateFunction();
+            }
+            return {
+                setName:publicSetName,
+                greeting:publicVar,
+                getName:publicGetName
+            }
+        }();
+        myRevealingModule.setName("wangchen");
+
+        myRevealingModule.getName();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

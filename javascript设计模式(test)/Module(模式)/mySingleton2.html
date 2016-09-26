@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var myBadSingleton=(function(){
+            var instance;
+            function init(){
+                /*私有变量和方法*/
+                var privateRandomNumber=Math.random();
+                return {
+                    getRandomeNumber:function(){
+                        return privateRandomNumber;
+                    }
+                }
+            }
+            return {
+                /*每次都创建新实例*/
+                getInstance:function(){
+                    instance=init();
+                     return instance;
+                }
+            }
+        })();
+        var singleA=myBadSingleton.getInstance();
+        var singleB=myBadSingleton.getInstance();
+        console.log(singleA.getRandomeNumber===singleB.getRandomeNumber);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

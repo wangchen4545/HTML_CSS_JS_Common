@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var SingletonTester=(function(){
+//            options 包涵singleton的配置信息的对象；
+//            e.g var options={name:"test",pointX:5}
+             function Singleton(options){
+                 options=options||{};
+                 this.name="singletonTester";
+                 this.pointX=options.pointX||6;
+                 this.pointY=options.pointY||7;
+             }
+//            实例持有者
+            var instance;
+
+            var _static={
+                name:"singletonTester",
+                getInstance:function(options){
+                    if(instance===undefined){
+                        instance= new Singleton(options);
+                    }
+                    return instance
+                }
+            }
+            return _static;
+        })();
+
+        var singleton=SingletonTester.getInstance({pointX:7777});
+
+        console.log(singleton.pointX)
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

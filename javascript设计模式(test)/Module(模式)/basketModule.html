@@ -5,8 +5,50 @@
     <title>Title</title>
     <script>
         var basketModule=(function(){
+            var basket=[];
+            function dosomethingPrivate(){
+                /*11111*/
+            };
+            function dosSomethingElsePrivate(){
+                //...
+            };
+            return {
+                addItem:function(values){
+                    basket.push(values)
+                },
+                getItemCount:function(){
+                    return basket.length;
+                },
+                doSomething:dosomethingPrivate,
+                getTotal:function(){
+                    var itemCount=this.getItemCount(),
+                         total=0;
 
+                    while(itemCount--){
+                        total+=basket[itemCount].price;
+                    }
+                    return total;
+                }
+            }
         })();
+        /*
+        *只暴露出来addIteme，getItemCount，getTotal
+        * 没有办法访问 basket
+        * 真正的私有变量，
+        * */
+        basketModule.addItem({
+            item:"bread",
+            price:0.3
+        });
+
+        basketModule.addItem({
+            item:"bread",
+            price:0.3
+        });
+
+        console.log(basketModule.getItemCount());
+        console.log(basketModule.getTotal());
+
     </script>
 </head>
 <body>
