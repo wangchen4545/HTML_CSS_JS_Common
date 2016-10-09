@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title></title>
     <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
-
+    <script src="https://cdn.bootcss.com/jquery/1.12.1/jquery.js"></script>
     <style>
 
     </style>
@@ -16,18 +16,21 @@
     </script>
 </head>
 <body>
-    <div class="now_room">
+    <div class="now_room" id="room">
         当前房间:<span>abc</span>
     </div>
     <div class="content_area">
-        <textarea class="massage" name="massage" id="" cols="30" rows="10">
+        <textarea id="message" class="massage" name="massage" id="" cols="30" rows="10">
         </textarea>
     </div>
-    <div class="">
+    <div class="send_message">
         <input type="text" value="" placeholder="请输入信息" />
     </div>
-    <div class="enter_btn">
+    <div class="enter_btn send_button">
         <button>enter</button>
     </div>
+<div id="room_list">
+
+</div>
 </body>
 </html>
