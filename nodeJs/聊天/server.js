@@ -19,16 +19,17 @@ function send404(response){
 function sendFile(response,filePath,fileContents){
     response.writeHead(
         200,
-        {"Content-Type":mime.lookup(path.basename(filePath))}
-    )
+        {"content-Type":mime.lookup(path.basename(filePath))}
+    );
     response.end(fileContents);
 }
 function serveStatic(response,cache,absPath){
     if(cache[absPath]){
         sendFile(response,absPath,cache[absPath]);
     }else{
-        fs.exists(absPath,function(exsits){
-            if(exsits){
+        console.log(absPath)
+        fs.exists(absPath,function(exists){
+            if(exists){
                 fs.readFile(absPath,function(err,data){
                     if(err){
                         send404(response)
@@ -38,18 +39,19 @@ function serveStatic(response,cache,absPath){
                     }
                 });
             }else{
-                send404(respons);
+                send404(response);
             }
         })
     }
 }
-
 var server=http.createServer(function(request,response){
     var filePath=false;
+    //console.log(request.url);
+
     if(request.url=="/"){
         filePath="public/index.html"
     }else{
-        filePath="pubilc/"+request.url;
+        filePath="public"+request.url;
     }
     var absPath="./"+filePath;
     serveStatic(response,cache,absPath);

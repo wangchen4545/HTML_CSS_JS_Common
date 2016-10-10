@@ -10,7 +10,7 @@ var currentRoom={};
 
 exports.listen=function(server){
     io=scoketio.listen(server);
-    io=set("log leve1",1);
+    io.set("log leve1",1);
     io.sockets.on("connection",function(socket){
         guestNumber=assignGuestName(socket,guestNumber,nickNames,namesUsed);
         joinRoom(socket,"lobby");

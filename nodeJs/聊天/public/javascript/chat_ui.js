@@ -20,7 +20,6 @@ function processUserinput(chatApp,socket){
 }
 
 var socket=io.connect();
-
 $(function(){
     var charApp=new Chat(socket);
     socket.on("nameResult",function(result){
@@ -57,14 +56,13 @@ $(function(){
     });
     setInterval(function(){
         socket.emit("rooms");
-
     },1000);
 
     $(".send_message").focus()
 
     $(".send_form").submit(function(){
         processUserinput(charApp,socket);
-        return false
+        return false;
     });
 });
 

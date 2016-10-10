@@ -5,17 +5,17 @@
     <title></title>
     <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
     <script src="https://cdn.bootcss.com/jquery/1.12.1/jquery.js"></script>
-    <style>
-
-    </style>
+    <script src="javascript/chat.js"></script>
+    <script src="javascript/chat_ui.js"></script>
+    <style></style>
     <link rel="stylesheet" href="css/base.css"/>
     <script>
-        const revise_room_name="已经进入{XX}房间",
-               revise_name="已经更名为{XXX}";
-
+//        const revise_room_name="已经进入{XX}房间",
+//               revise_name="已经更名为{XXX}";
     </script>
 </head>
 <body>
+<form action="" id="send_form" class="send_form">
     <div class="now_room" id="room">
         当前房间:<span>abc</span>
     </div>
@@ -29,8 +29,7 @@
     <div class="enter_btn send_button">
         <button>enter</button>
     </div>
-<div id="room_list">
 
-</div>
+</form>
 </body>
 </html>
