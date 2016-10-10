@@ -1,0 +1,21 @@
+
+关键字：exports
+
+exports用来定义模块(module)
+
+例如:exports.fn=function(str){
+    return str;
+}
+这样就定义了一个模块
+
+引用模块：
+
+var func=require(fn);
+
+如果需要使用exports关键字，那么需要 module.exports=exports=fn;
+
+//如果有这么写的，他实在是太蛋疼了
+
+
+
+
