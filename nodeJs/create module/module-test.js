@@ -5,7 +5,7 @@
 //
 //console.log(currency.ToUs(66));
 
-var currency=require("node_module_test");
+var currency=require("node_modules_test");
 
 var TO=new currency();
 

@@ -16,6 +16,11 @@ var func=require(fn);
 
 //如果有这么写的，他实在是太蛋疼了
 
-
+如果是模块目录 node_modules 里面定义的js必须是index.js,
+除非在package.json里面特别声明制定取代index.js
+其中有main用来指明模块目录内主文件的路径
+{
+    main:"./dome.js"
+}
 
 
