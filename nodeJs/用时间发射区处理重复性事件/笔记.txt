@@ -1,0 +1,50 @@
+
+这个需要使用telnet
+
+安装顺序
+
+开始”→“控制面板”→“程序”，“在程序和功能”找到并点击“打开或关闭Windows功能”进入Windows 功能设置对话框。找到并勾选“Telnet客户端”和“Telnet服务器”，最后“确定”稍等片刻即可完成安装。
+
+on用来处理多次请求once用来相应一次请求
+
+事件只是一个键（事件名字，随意取名），可以是任意字符串，
+    注意只有一个是特殊的那就是error
+
+
+   资料： http://www.runoob.com/nodejs/nodejs-event.html
+
+   nodejs 所有的异步请求,i/o操作在完成是都会发送一个事件到事件列队
+   nodejs里面的许多对象都会分发事件：一个net.server对象会在每次有新连接是分发一个事件，
+   一个fs.readStream对象会在文件被打开时候发出一个事件。所有产生对象都是event.EventEmitter的实例
+
+例子：
+
+    var net=require("net"),
+        events=require("events"),
+        fs=require("fs"),
+        http=require("http");
+
+    var channel=new events.EventEmitter();
+
+    var server=net.createServer(function(client){
+        var data1=null;
+        fs.readFile("./css.html",function(err,data){
+            data=data.toString();
+            client.on("data",function(){
+                channel.emit("change",data);
+            });
+        });
+        channel.on("change",function(data){
+            console.log(data);
+            channel.emit("send",data);
+        });
+        channel.on("send",function(data){
+            console.log(data+1)
+        });
+    }).listen(8080);
+
+   2016.10.12 其实吧我倒是觉得有点回调的意思,但是并不一样，因为可以把事件这样调用，也可以删除掉这个事件，从而终止后面的程序， 先绑定一个事件
+    channel.on("event",function(){});
+   ，然后发送事件也就是emit("event",data)
+
+

@@ -38,7 +38,7 @@
     display: block;/*设置元素显示，也可以设置内联元素让他变成块级元素*/
     display: inline-block;/*行内块元素，既能添加width，height这些属性又不会占正行，但是有bug，会有几像素的误差*/
     /*css3(老版本)*/display:-webkit-box;/*声明这个盒子是弹性盒子*/
-    /*css3(老版本)*/webkit-box-flex:1;/*设置子集占比*/
+    /*css3(老版本)*/-webkit-box-flex:1;/*设置子集占比*/
     /*css3(老版本)*/ -webkit-box-pack:center;/*用来确定，子集方向（横排） start(left),center,end(right),justify(平均分配)*/
     /*css3(老版本)*/-webkit-box-align:center;/*用来确定，子集方向（竖排）start(top),center,end(bottom),baseline(top):注和start没啥区别，stretch(占满父级受height影响，height比这个优先级高)*/
     /*css3(老版本)*/-webkit-box-direction:reverse;/*用来改变子集顺序 normal*/
