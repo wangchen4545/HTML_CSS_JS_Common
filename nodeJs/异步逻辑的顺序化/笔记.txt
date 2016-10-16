@@ -1,0 +1,45 @@
+
+串行其实就是一步一步执行（嵌套）
+
+例子：
+function (callback){
+    callback&&callback();
+}
+例子2：
+
+var fns=[fn1,fn2];
+
+function fn1(){
+
+    start()
+}
+
+function fn2{
+    start()
+}
+function start(){
+    var fn=fns.shift();
+
+    if(fns)
+        fn()
+    else
+        retrun false
+}
+
+start()
+
+
+并行其实就是个for循环 ：
+
+var aFns=[fn1,fn2,fn3];
+
+function fn1(){}
+function fn2(){}
+function fn3(){}
+
+for(var index in aFns){
+    aFns[index]aFns
+}
+
+看这样就是一个并行的。
+
