@@ -14,6 +14,8 @@ response.setHeader("Content-Length",boyd.length);
 response.setHeader("Content-Type","text/plain");
 response.statusCode=200
 
+resquest.method 请求方式
+
 buffer.这个方法很强大非常强大，可以好好看看
 
 items.map(function(item,i){},thisArg);
@@ -35,3 +37,9 @@ DELETE 请求:
 
 
 
+
+
+
+__dirname:当前目录 （我的天，这样。。。唉）
+
+STREAM.PIPE()
