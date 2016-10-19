@@ -1,0 +1,37 @@
+
+
+
+response:反映回答
+
+response.write()
+response.end("str")
+
+以上两个可以合并成一个 
+
+response.end("str")
+
+response.setHeader("Content-Length",boyd.length);
+response.setHeader("Content-Type","text/plain");
+response.statusCode=200
+
+buffer.这个方法很强大非常强大，可以好好看看
+
+items.map(function(item,i){},thisArg);
+
+arr.map(callback)
+
+里面的函数可以填写三个值
+
+callback 的第一个参数，数组中当前传递被传递的元素，
+callback 的第二个参数，数组中当前传递被传递的索引，
+callback 的第三个参数，调用 map 方法的数组，
+
+例如index.js下面的testThis函数
+
+如果 thisArg 参数有值，则每次 callback 函数被调用的时候，this 都会指向 thisArg 参数上的这个对象。如果省略了 thisArg 参数,或者赋值为 null 或 undefined，则 this 指向全局对象 。
+
+
+DELETE 请求:
+
+
+

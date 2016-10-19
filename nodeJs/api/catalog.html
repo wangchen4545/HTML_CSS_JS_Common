@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <script type="text/javascript" src="js/shCore.js"></script>
+    <script type="text/javascript" src="js/shBrushBash.js"></script>
+    <script type="text/javascript" src="js/shBrushCss.js"></script>
+    <script type="text/javascript" src="js/shBrushDiff.js"></script>
+    <script type="text/javascript" src="js/shBrushJScript.js"></script>
+    <script type="text/javascript" src="js/shBrushXml.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/shCore.css"/>
+    <link type="text/css" rel="stylesheet" href="css/shThemeEclipse.css"/>
+    <script type="text/javascript">
+        SyntaxHighlighter.config.clipboardSwf = 'scripts/clipboard.swf';
+        SyntaxHighlighter.all();
+    </script>
+</head>
+<body>
+    <div class="catalog">
+        <div class="posi">
+            <div class="tit">
+                nodeJS实战
+            </div>
+            <h1>node编程基础</h1>
+            <h2>3.1node功能的组织及作用</h2>
+            <h3><a href="#创建模块">3.1.2创建模块</a></h3>
+            <h3><a href="#用node_modules重用模块">3.1.3用node_modules重用模块</a></h3>
+            <h3><a href="#注意事项">3.1.4注意事项</a></h3>
+            <h2>3.1异步编程技术</h2>
+            <h3><a href="#用回调处理一次性事件">3.2.1用回调处理一次性事件</a></h3>
+                <h4><a href="#响应只应该发生一次的事件">2响应只应该发生一次的事件</a></h4>
+                <h4><a href="#创建发射器">3响应只应该发生一次的事件</a></h4>
+                <h4><a href="#扩展事件监听器：文件监视器">3扩展事件监听器：文件监视器</a></h4>
+            <h3><a href="#异步开发难题">3.2.3异步开发难题</a></h3>
+            <h2>异步逻辑的顺序化</h2>
+            <h3><a href="#实现串行流程化控制">3.3.2实现串行化流程控制</a></h3>
+            <h3><a href="#实现并行流程化控制">3.3.3实现并行流程化控制</a></h3>
+            <h3><a href="#实现并行流程化控制">3.3.4利用社区里面的工具</a></h3>
+        </div>
+    </div>
+    <div class="content">
+        <div class="tit" id="创建模块">
+            node功能的组织级作用
+        </div>
+        <div class="depict">
+            <div class="nimi_tit">
+                3.1.2用module.exports微调模块的创建
+            </div>
+            <div class="content_text">
+                <p>关键字：exports</p>
+
+                <p>exports用来定义模块(module)</p>
+            <pre class="brush: js;">
+                 exports.fn=function(str){
+                    return str;
+                }
+            </pre>
+                <p>
+                    引用模块：
+                </p>
+            <pre class="brush:js">
+                                var func=require(fn);
+            </pre>
+
+                <p> 如果需要使用exports关键字，那么需要</p>
+            <pre class="brush: js;">
+                 module.exports=exports=fn;
+            </pre>
+                <!--如果有这么写的，他实在是太蛋疼了-->
+
+                <p>如果是模块目录  里面定义的js必须是 <span class="important">index.js</span>,</p>
+
+                <p>除非在 <span class="important">package.json</span>里面特别声明制定取代index.js</p>
+
+                <p>其中有main用来指明模块目录内主文件的路径</p>
+            <pre class="brush:js">
+                {
+                    main:"./dome.js"
+                }
+            </pre>
+            </div>
+            <div class="nimi_tit" id="用node_modules重用模块">
+                3.1.3用node_modules重用模块
+            </div>
+            <div class="content_text">
+                此处应该有图片，但是把没做！！！有时间照着描一下
+            </div>
+            <div class="nimi_tit" id="注意事项">
+                3.1.4 注意事项
+            </div>
+            <div class="content_text">
+                此处应该有图片，但是把没做！！！有时间照着描一下
+            </div>
+        </div>
+        <div class="depict">
+            <div class="nimi_tit" id="用回调处理一次性事件">
+                3.2.1用回调处理一次性事件
+            </div>
+            <div class="content_text">
+                回调!回调懂不 就这样
+                <pre class="brush:js">
+                    (function(){
+                        (function(){
+                            (function(){
+                            })()
+                        })()
+                    })()
+                </pre>
+                <p>当然了你也可以减少嵌套</p>
+                <pre class="brush:js">
+                    function fn1(){
+                        fn2()
+                    }
+                    function fn2(){
+                        fn3()
+                    }
+                    function fn3(){
+                        alert("最后执行的")
+                    }
+                    fn1();
+                </pre>
+                <p>很简单是不是！</p>
+            </div>
+            <div class="nimi_tit" class="用事件发射器处理重复性事件">
+                3.2.1用回调处理一次性事件
+            </div>
+            <div class="content_text">
+                <pre class="brush:js">
+                    var net=require("net"),
+                        events=require("events"),
+                        fs=require("fs"),
+                        http=require("http");
+
+                    var channel=new events.EventEmitter();
+
+                    var server=net.createServer(function(client){
+                        var data1=null;
+                        fs.readFile("./css.html",function(err,data){
+                            data=data.toString();
+                            client.on("data",function(){
+                                channel.emit("change",data);
+                            });
+                        });
+                        channel.on("change",function(data){
+                            console.log(data);
+                            channel.emit("send",data);
+                        });
+                        channel.on("send",function(data){
+                            console.log(data+1)
+                        });
+                    }).listen(8080);
+                </pre>
+            </div>
+            <div class="content_text">
+                <p>nodejs 所有的异步请求,i/o操作在完成是都会发送一个事件到事件列队</p>
+                <p>nodejs里面的许多对象都会分发事件：一个net.server对象会在每次有新连接是分发一个事件，</p>
+                <p> 一个fs.readStream对象会在文件被打开时候发出一个事件。所有产生对象都是event.EventEmitter的实</p>
+                <p><span class="important">记住是一个列队</span>你先发送一个事件</p>
+                <p><span class="important">emit（解释）: </span><a href="http://www.runoob.com/nodejs/nodejs-event.html">http://www.runoob.com/nodejs/nodejs-event.html</a></p>
+                <p><span class="important">事件名称可以是任意字符串，随便你起名字</span></p>
+        <pre class="brush:js">
+            channel.emit("change",data);
+        </pre>
+                <p>发送出去以后就可以定义事件了</p>
+        <pre class="brush:js">
+            channel.on("dome",function(data){})
+        </pre>
+                <p>当然如果你定义完成以后也可以remove事件,注意一定要给函数添加名字</p>
+        <pre class="brush:js">
+            removeListener.on("dome",fn1)
+        </pre>
+                <p>也可以remove所有事件</p>
+        <pre class="brush:js">
+            removeAllListeners.on("dome",fn1)
+        </pre>
+                <p>应该还有其他事件，看看以后碰的上么</p>
+                <div class="用回调处理一次性事件" id="用回调处理一次性事件">
+                    2用回调处理一次性事件
+                </div>
+                <div class="nimi_tit" id="响应只应该发生一次的事件">
+                    响应只应该发生一次的事件
+                </div>
+                <p>
+                    事件是 <span class="important">once</span>
+                </p>
+        <pre class="brush:js">
+            var net=require("net");
+
+            var server=net.createServer(function(socket){
+                socket.once("data",function(){
+                })
+            })
+        </pre>
+                <div class="nimi_tit" id="扩展事件监听器：文件监视器">
+                    扩展事件监听器:文件监视器
+                </div>
+                <p>其实挺简单的，还是先发送一个事件，然后在定义一个事件,但是里面还是看到了系统模块的应用 <span class="important">fs.readdir()</span></p>
+                <p>某一个函数继承event.EventEmitter函数里面的东西</p>
+        <pre class="brush:js">
+            util.inherits(test,event.EventEmitter)
+           test.prototype=new event.EventEmitter();
+        </pre>
+                <p>代码片段</p>
+        <pre class="brush:js">
+           Watcher.prototype.watch=function(){
+                var watcher=this;
+                fs.readdir(this.watchDir,function(err,files){
+                    if(err) return;
+                    for(var index in files){
+                        watcher.emit("process",files[index])
+                    }
+                });
+            };
+        </pre>
+         <pre class="brush:js">
+            watcher.on("process",function(files){
+                var watchFile= this.watchDir+"/"+files;
+                var processedFile=this.processedDir+"/"+files.toLowerCase();
+
+                fs.rename(watchFile,processedFile,function(err,data){
+                    if(err) return
+                });
+            });
+        </pre>
+
+            </div>
+            <div class="nimi_tit" id="异步开发难题">
+                3.2.3异步开发难题
+            </div>
+            <div class="content_text">
+                <p>
+                    异步开发的难题，这个就是用立即执行的函数包一层，来达到不会污染变量的问题，
+                    （感觉用es6的let就能解决）还没试
+                </p>
+            </div>
+        </div>
+        <div class="depict">
+            <div class="nimi_tit" id="实现串行流程化控制">
+                3.3.2实现串行流程化控制
+            </div>
+            <div class="content_text">
+                <p>串行其实就是一步一步执行（嵌套）</p>
+                <p>例子1</p>
+                <pre class="brush:js">
+                    function (callback){
+                        callback&&callback();
+                    }
+                </pre>
+                <p>例子2</p>
+                <pre class="brush:js">
+                    var fns=[fn1,fn2];
+
+                    function fn1(){
+
+                        start()
+                    }
+
+                    function fn2{
+                        start()
+                    }
+                    function start(){
+                        var fn=fns.shift();
+
+                        if(fns)
+                            fn()
+                        else
+                            retrun false
+                    }
+                    start()
+                </pre>
+            </div>
+            <div class="nimi_tit" id="实现并行流程化控制">
+                3.3.3实现并行流程化控制
+            </div>
+            <div class="content_text">
+                <p>并行其实就是个for循环 ：</p>
+                <pre class="brush:js">
+                    var aFns=[fn1,fn2,fn3];
+
+                    function fn1(){}
+                    function fn2(){}
+                    function fn3(){}
+
+                    for(var index in aFns){
+                        aFns[index]aFns
+                    }
+                </pre>
+            </div>
+            <div class="nimi_tit" id="利用社区里面的工具">
+                3.3.4利用社区里面的工具
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<!--depict-->
+<!--<pre class="brush:js">
+
+         </pre>-->
