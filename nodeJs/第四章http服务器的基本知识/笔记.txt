@@ -43,3 +43,45 @@ DELETE 请求:
 __dirname:当前目录 （我的天，这样。。。唉）
 
 STREAM.PIPE()
+
+fs.stat(path,function(err,stat){});
+
+这个方法是异步获取文件信息的语法格式回调函数接受两个参数
+
+err：
+    code：ENOENT；没有这个文件
+    path：path;也就是错误的路径
+    syscall：
+stat:其实返回的是各种方法
+    stats.isFile()
+
+下面是链接：
+http://www.runoob.com/nodejs/nodejs-fs.html
+
+var stream=fs.createReadStream(path)
+
+方法是创建文件流;
+
+stream.pipe(response);
+
+这个的意思是 path路径里面的文件建成数据流 流到response，response做了很多的事情比如response.end()
+
+管道提供了一个输出流到输入流的机制。通常我们用于从一个流中获取数据并将数据传递到另外一个流中。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
