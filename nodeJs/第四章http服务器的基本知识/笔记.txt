@@ -69,6 +69,14 @@ stream.pipe(response);
 管道提供了一个输出流到输入流的机制。通常我们用于从一个流中获取数据并将数据传递到另外一个流中。
 
 
+qs=requre("querystring");
+
+http://yijiebuyi.com/blog/d37512fc6df0fc4d0adfc2ec5c3d46ff.html
+
+item=王晨王晨
+這個是把字符串轉成對象{item:"王晨"}
+
+
 
 
 

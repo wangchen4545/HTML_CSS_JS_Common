@@ -2,7 +2,7 @@
  * Created by richu on 2016/10/13.
  */
 
-var fs=require("fs"),
+const fs=require("fs"),
     request=require("request"),
     htmlparser=require("htmlparser"),
     configFileName="./res_feeds.txt";
