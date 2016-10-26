@@ -77,6 +77,26 @@ item=王晨王晨
 這個是把字符串轉成對象{item:"王晨"}
 
 
+var formidable=requiere("formidable");
+var form=new formidable()
+formidable模块详解：
+http://www.cnblogs.com/yuanke/archive/2016/02/26/5221853.html
+
+还是用模块来进行数据上传，并没有涉及到更基础的东西，以后再看原理
+
+原理：http://cnodejs.org/topic/4f16442ccae1f4aa2700104d
+
+这个模块有很多事件 field file end progress
+
+progress可以做进度条：
+
+注意：require.headers["content-type"] 在获取的时候要小写，写的时候首个字母要大写，我载这个坑上了。
+注意：node感觉支持中文不太好congsole.log("当前时间")是输出不出来的，但是英文是可以的。
+
+
+
+
+
 
 
 
