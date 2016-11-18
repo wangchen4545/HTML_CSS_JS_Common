@@ -3,14 +3,14 @@
  */
 var qs=require("querystring");
 
-exports.sendHTML=function(req,html){
+exports.sendHtml=function(req,html){
     req.setHeader("Content-Type","text/html;charset=utf-8");
-    req.setHeader("Content-Length",Buffer.byteLength(html));
-    res.end(html);
+/*    req.setHeader("Content-Lengt/!**!//!**!/h",Buffer.byteLength(html));*/
+    req.end(html);
 };
 
 exports.parseReceivedDate=function(req,cd){
-    var boyd="";
+    var body="";
     req.setEncoding="utf8";
     req.on("data",function(chunk){
         body+=chunk;
@@ -29,36 +29,36 @@ exports.actionForm=function(id,path,lable){
 };
 
 exports.add=function(db,request,response){
-    pxprots.parseReceivedDate(request,function(work){
-        db.queue("DELETE FROM work id=?",
+    exports.parseReceivedDate(request,function(work){
+        db.query("DELETE FROM work id=?",
         [work.id],
         function (err){
-            if(err) throw err;
-            exprots.show(db,response)
+            /*if(err) throw err;*/
+            exports.show(db,response)
         }
         )
     });
 };
 exports.delete=function(db,request,response){
-    exprots.parseReceivedDate(request,function(work){
+    exports.parseReceivedDate(request,function(work){
         db.query(
             "DELETE FROM work WHERE id=?",
             [work.id],
             function(err){
-                if(err) throw err;
+                /*if(err) throw err;*/
                 exports.show(db,response)
             }
         )
     });
 };
 exports.archive=function(db,request,response){
-    exprots.parseReceivedDate(request,function(work){
+    exports.parseReceivedDate(request,function(work){
         db.query(
             "UPDATE work SET archived=1 WHERE id=?",
             [work.id],
             function(err){
-                if(err) throw err;
-                exprots.show(db,response)
+                /*if(err) throw err;*/
+                exports.show(db,response)
             }
 
         )
@@ -75,18 +75,18 @@ exports.show=function(db,request,showArchived){
         query,
         [archiveValue],
         function(err,rows){
-            if(err) throw err;
+            /*if(err) throw err;*/
             var html=(showArchived)? "" :"<a href='/archived'>Archived Work</a></br>";
 
-            html+=exprots.workHitlistHtml(rows);
-            html+=exprots.workFormHtml();
+            html+=exports.workHitlistHtml(rows);
+            html+=exports.workFormHtml();
 
-            exprots.sendHtml(request,html)
+            exports.sendHtml(request,html)
         }
     )
 };
 exports.showArchived=function(db,response){
-    exprots.show(db,response,true);
+    exports.show(db,response,true);
 };
 exports.workHitlistHtml=function(rows){
     var html="<table>";
@@ -125,14 +125,14 @@ exports.workFormHtml=function(){
         + '</form>';
     return html
 };
-exprots.workArchiveForm=function(){
+exports.workArchiveForm=function(){
 
     return exports.actionForm(id,'/archives','Archive');
 
 };
 
-exprots.worDeleteForm=function(){
-    return exprots.actionForm(id,'/delete','Delete')
+exports.worDeleteForm=function(){
+    return exports.actionForm(id,'/delete','Delete')
 };
 
 

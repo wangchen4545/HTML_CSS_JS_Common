@@ -6,23 +6,26 @@ var work=require("./lib/timetrack");
 var mysql=require("mysql");
 
 var db=mysql.createConnection({
-    host:"10.13.34.23",
+    host:"localhost",
     user:"admin",
     password:"admin",
     database:"timetrack"
 });
 var server=http.createServer(function(request,response){
-    switch (request.mothod){
+    switch (request.method){
         case "POST":
             switch (request.url){
                 case "/":
+                    console.log("post,/");
                     work.add(db,request,response);
                     break;
                 case "/archive":
+                    console.log("post,/archive");
                     work.archive(db,request,response);
 
                     break;
                 case "/delete":
+                    console.log("post,/delete");
                     work.delete(db,request,response);
                     break
             }
@@ -30,10 +33,15 @@ var server=http.createServer(function(request,response){
         case "GET":
             switch (request.url){
                 case "/":
-                    work.shwo(db,request);
+                    console.log("get,/")
+                    work.show(db,response);
                     break;
                 case"/archived":
-                    work.shwoArchived(db,res);
+                    console.log("get,/archived")
+                    work.showArchived(db,response);
+                    break;
+                default :
+
                     break;
             }
             break
