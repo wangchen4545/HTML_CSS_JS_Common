@@ -6,7 +6,7 @@ var work=require("./lib/timetrack");
 var mysql=require("mysql");
 
 var db=mysql.createConnection({
-    host:"172.0.0.1",
+    host:"10.13.34.23",
     user:"admin",
     password:"admin",
     database:"timetrack"
@@ -51,8 +51,9 @@ db.query(
     function(err){
         //if(err) throw err;
         console.log("Server started...");
-        server.listen(3000,"172.0.0.1")
+        server.listen(3000,"10.13.34.23")
     }
 
 );
 // 192.168.1.101
+// 10.13.34.23
