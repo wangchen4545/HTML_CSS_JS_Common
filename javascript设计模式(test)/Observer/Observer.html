@@ -5,89 +5,92 @@
     <title>Title</title>
     <script>
         <!--麻痹 不明白-->
-        function Oberver(){
-            this.oberverList=[];
-        }
-        Oberver.prototype.Add=function(obj){
-            return this.oberverList.push(obj)
+       function ObserverListi(){
+           this.observer=[];
+       }
+        ObserverListi.prototype.add=function(obj){
+            return this.observer.push(obj)
         };
-        Oberver.prototype.Empty=function () {
-            this.oberverList=[];
+        ObserverListi.prototype.Empty=function(){
+            return this.observer=[];
         };
-        Oberver.prototype.Count=function(){
-            return this.oberverList.length;
+        ObserverListi.prototype.Count=function(){
+            return this.observer.length;
         };
-        Oberver.prototype.Get=function(index){
-            if(index>-1 || index<this.oberverList.length){
-                return this.oberverList[index];
+        ObserverListi.prototype.Get=function(index){
+            if(index>-1 && index<this.observer.length){
+                return this.observerList[index];
             }
         };
-        Oberver.prototype.Insert=function(obj,index){
+        ObserverListi.prototype.Insert=function(obj,index){
             var pointer=-1;
             if(index===0){
-//                前面添加
-                this.oberverList.unshift(obj);
-                pointer=index;
-            }else if(index===this.oberverList.length){
-//                后面添加
-                this.oberverList.push(obj);
+                this.observer.unshift(obj)
+            }else if(index===this.observer.length){
+                this.observer.push(obj);
                 pointer=index;
             }
             return pointer
         };
-        Oberver.prototype.IndexOf=function(obj,startIndex){
+        ObserverListi.prototype.IndexOf=function(obj,startIndex){
             var i=startIndex,pointer=-1;
-            while(i<this.oberverList.length){
-                if(this.oberverList[i]===obj){
+            while(this.observer.length){
+                if(this.observer[i]==obj){
                     pointer=i
                 }
                 i++
             }
-            return pointer;
-
+            return pointer
         };
-        Oberver.prototype.RemoveIndexAt=function(index){
+        ObserverListi.prototype.RemoveIndexAt=function(){
             if(index===0){
-                this.oberverList.shift();
-            }else if(index===this.oberverList.length-1){
-                this.oberverList.pop()
+                this.observer.shift();
+            }else if(index===this.observer.length){
+                this.observer.pop();
             }else{
-//                Tlmis oberverList.splicecind
-            };
 
+            }
         };
+
+
+        function Subject (){
+            this.observers=new ObserverListi();
+        }
+        Subject.prototype.AddObserver=function(observer){
+            this.observers.add(observer);
+        };
+        Subject.prototype.RemoveObserver=function(observer){
+            this.observers.RemoveIndexAt(this.observers.IndexOf(observer,0));
+        };
+        Subject.prototype.Notify=function(){
+            var observerCount=this.observer.Count();
+            for(var i=0;i<observerCount;i++){
+                this.observers.Get(i).Update(context);
+            }
+        };
+        function Observer(){
+            this.Update=function(){
+
+            };
+        }
+
+
+
+
+
+
         function extend(obj,extension){
             for(var key in obj){
                 extension[key]=obj[key]
             }
         }
-        function Subject(){
-            this.observers=new Oberver();
-        }
-        Subject.prototype.AddObserver=function(observer){
-            this.observers.Add(observer)
-        }
-        Subject.prototype.RemoveObserver=function(observer){
-            this.observers.RemoveIndexAt(this.observers.IndexOf(observer,0));
-        }
-        Subject.prototype.Notify=function(context){
-            var observerCount=this.observers.Count();
-            for(var i=0;i<observerCount;i++){
-                    this.observers.Get(i).Update(context);
-            }
-        }
-        function Observer(){
-            this.Update=function(){
 
-            }
-        }
     </script>
 </head>
 <body>
 <button id="addNew">Add New </button>
 <input id="mainCheckbox" type="checkbox">
 <div id="observersContainer" style="width: 100px;height: 30px;background: #232323">111</div>
-
 <script>
     var controlCheckbox=document.getElementById("mainCheckbox");
     var addBtn=document.querySelector("#addNew");
@@ -98,15 +101,16 @@
 //    controlCheckbox.onclick=new Function("controlCheckbox.Notify controlCheckbox.checked");
 
     addBtn.onclick=AddNewObserver;
-    console.log(Oberver)
+    console.log(Subject)
     function AddNewObserver(){
+        var i=0;
         var check= document.createElement("input");
         check.type="checkbox";
-        extend(new Oberver(),check);
+        extend(new Subject(),controlCheckbox);
         check.Update=function (val) {
-            this.checked=val;
-        }
-            console.log(Oberver.Add)
+            this.checked=val+1;
+            i++
+        };
         controlCheckbox.AddObserver(check);
         container.appendChild(check);
     }

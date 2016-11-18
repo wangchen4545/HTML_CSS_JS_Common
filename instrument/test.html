@@ -3,7 +3,17 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-
+    <script src="js/getString.js"></script>
+    <script>
+        window.addEventListener("load",function(){
+            var sid=scbGetString({"cookie":"sid"});
+            console.log(sid);
+        });
+        function setCookie(cookiename, cookievalue) {
+            document.cookie = cookiename + "=" + cookievalue
+        }
+        setCookie("sid","21345678")
+    </script>
 </head>
 <body>
     <div class="set_cookie">
@@ -13,27 +23,7 @@
 
     </div>
     <script>
-        document.addEventListener("DOMContentLoaded",function(){
-            var btn=document.querySelector(".set_cookie input");
-            btn.addEventListener("click",function(){
 
-                var cookie=getCookie("sid");
-
-                alert(cookie);
-
-            },false);
-        })
-        function getCookie( name ) {
-            var start = document.cookie.indexOf( name + "=" );
-            var len = start + name.length + 1;
-            if ( ( !start ) && ( name != document.cookie.substring( 0, name.length ) ) ) {
-                return null;
-            }
-            if ( start == -1 ) return null;
-            var end = document.cookie.indexOf( ';', len );
-            if ( end == -1 ) end = document.cookie.length;
-            return unescape( document.cookie.substring( len, end ) );
-        }
     </script>
 </body>
 </html>
