@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        /*http://es6.ruanyifeng.com/#docs/promise*/
+        /*resolve:决定；reject:拒绝*/
+        /*var promise=new Promise(function(resolve,reject){
+
+        });
+        promise.then(function(){
+            alert(111);
+        });*/
+        /* 支持setTimeout第三个参数，但是ie8,9不支持,没有测试ie10*/
+        /*function setTime(ms){
+            return new Promise(function(resolve,reject){
+               setTimeout(resolve,ms,["str","null"]);
+            });
+        }
+        setTime(1000).then(function(str){
+            console.log(str)
+        })*/
+        /*function timeout(ms) {
+            return new Promise(function(resolve){
+                        setTimeout(resolve, ms, 'done');
+                    });
+        }
+
+        timeout(100).then(function (value){
+            console.log(value);
+        });*/
+        /*var promise=new Promise(function(resolve,reject){
+            console.log("promise");
+            resolve();
+            reject();
+            console.log(promise)
+        });
+        promise.then(function(){
+            console.log('resolve')
+        },function(){
+            console.log("reject")
+        });*/
+
+/*可以接受两个参数，一个成功，一个失败，*/
+        /*function loadImg(url){
+            return new Promise(function(resolve,reject){
+                var image=new Image();
+                image.src=url;
+                image.onload=function(){
+                    resolve(url);
+                };
+                image.onerror=function(){
+                    reject(new Error("no "+url));
+                }
+
+            });
+        }
+        loadImg("http://www.nvxing163.com/uploads/141211/7_141211165519_21.jpg").then(function(url){
+            console.log("succ:"+url)
+        },function(message){
+            console.log(message)
+        });*/
+        /*当然也可以这样，用cath来承载错误，但是如果没有catch那么，如果有错误则不会报错，注意catch后面还可以添加then,因为返回来的还是promise对象*/
+        /*resolve一定要执行否则then不会执行，then和resolve需要配合使用。*/
+        /*catch方法是.then(null, rejection)*/
+        /*如果有错误都会被catch捕获，但是如果不写就不会被捕获，有例外chrome会报错*/
+        /*function loadImg(url){
+         return new Promise(function(resolve,reject){
+                var image=new Image();
+                image.src=url;
+                image.onload=function(){
+                    resolve(url);
+                };
+                image.onerror=function(){
+                    reject(new Error("no "+url));
+                }
+
+            });
+         }
+         loadImg("http://www.nvxing163.com/uploads/141211/7_141211165519_21.jpg").then(function(url){
+            console.log("succ:"+url)
+         }).catch(function(){
+            alert(1)
+         });*/
+        /*arr.map演示 返回的是数组 不可以是json */
+        /*var oldArr = [
+            {first_name:"Colin",last_name:"Toh"},
+            {first_name:"Addy",last_name:"Osmani"},
+            {first_name:"Yehuda",last_name:"Katz"}
+            ];
+
+        function getNewArr(){
+
+            return oldArr.map(function(item,index){
+                item.full_name = [item.first_name,item.last_name].join(" ");
+                return item.full_name;
+            });
+
+        }
+        console.log(getNewArr());*/
+
+        /*var json={"name":"18","age":"18"}
+
+        function jsonName(){
+            return name
+        }
+
+        var name=json.map(jsonName)
+        console.log(name)*/
+
+
+        var timer=()=>setTimeout(function(){console.log("timer")},1000);
+
+
+        var timerFn=function(){
+            return new Promise(function (f,n) {
+                timer();f()
+            });
+        };
+
+        timerFn().then(function(){
+            console.log("1")
+        }).then(()=>console.log("2"));
+
+
+
+        /*var getJSON = function(url) {
+            var promise = new Promise(function(resolve, reject){
+                var client = new XMLHttpRequest();
+                client.open("GET", url);
+                client.onreadystatechange = handler;
+                client.responseType = "json";
+                client.setRequestHeader("Accept", "application/json");
+                client.send();
+
+                function handler() {
+                    if (this.readyState !== 4) {
+                        return;
+                    }
+                    if (this.status === 200) {
+                        resolve(this.response);
+                    } else {
+                        reject(new Error(this.statusText));
+                    }
+                };
+            });
+
+            return promise;
+        };
+
+        getJSON("/posts.json").then(function(json) {
+            console.log('Contents: ' + json);
+        }, function(error) {
+            console.error('出错了', error);
+        });*/
+
+        /*promise.all();*/
+
+
+    </script>
+    <script>
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
