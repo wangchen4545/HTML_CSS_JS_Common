@@ -1,0 +1,255 @@
+@charset "utf-8";
+$gruy:#ccc;
+.wrap{
+    width: 320px;
+    margin: auto
+}
+// 三个 
+@mixin three_product($width,$test){
+    div{
+        display: flex;
+        justify-content: space-between;
+        a{
+            display: block;
+            width: $width;
+            @if $test{
+                background: $gruy;
+                height: 100px;
+            }
+        }
+    }
+
+}
+// 两个
+@mixin two_product($width,$test){
+    div{
+        display: flex;
+        justify-content: space-between;
+        a{
+            display: block;
+            width: $width;
+            @if $test{
+                background: $gruy;
+                height: 100px;
+            }
+        }
+    }
+
+}
+// 单个滑动
+@mixin slideTab($width,$height,$btnColor,$test){
+    width: $width;
+    height: $height;
+    position: relative;
+    @if $test{
+        background: $gruy;
+    };
+    .img_area{
+        width: $width;
+        height: $height;
+        overflow: hidden; 
+    }
+    ul{
+        width: 100%;
+    }
+    li{
+        width: 100%
+    }
+    .btn{
+        position: absolute;
+        width: $width;
+        left: 0;
+        bottom: 5px;
+        text-align: center;
+        *{
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            color:$btnColor;
+            background: $btnColor;
+        }
+        .active{
+            width: 20px;
+            border-radius: 15px;
+        }
+    }
+}
+// 单排滑动
+@mixin slide_odd_row($width,$height,$childWidth,$bg,$test){
+    width: $width;   
+    height: $height;     
+    background: $bg;
+
+    div{
+        display: flex;
+        overflow:auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    a{
+        display: block;
+        width: $childWidth;
+        height: $height;
+        margin-left: 10px;
+        flex-shrink: 0;
+        @if $test{
+            background: $gruy;
+        };
+    }
+}
+// 双排滑动
+@mixin slide_even_row($width,$height,$childWidth,$bg,$test){
+    width: $width;   
+    height: $height+10;     
+    background: $bg;
+
+    >div{
+        overflow:auto;
+        -webkit-overflow-scrolling: touch;
+        >div{
+            margin-bottom: 10px;
+            display: flex;
+        }
+        div:nth-child(2){
+            margin-bottom: 10px;
+        }
+    }
+    a{
+        display: block;
+        width: $childWidth;
+        height: ($height/2);
+        margin-left: 10px;
+        flex-shrink: 0;
+        @if $test{
+            background: $gruy;
+        };
+    }
+}
+// tab 切换
+// @mixin tab_div(itemNUm){
+
+// }
+// 弹窗规则
+@mixin popUp_rule($titColor,$contntColor,$bgColor,$test){
+    @if $test{
+        position: absolute
+    }else{
+        position: fixed;
+    }
+    left: 0;
+    top:0;
+    background: rgba(0,0,0,0.8);
+    width: 100%;
+    height: 100%;
+    h3{
+        text-align: center;
+        font-size: 20px;
+        padding-top: 15px;
+        color: $titColor;
+    }
+    .pd_30{
+        padding-top: 100px;
+    }
+    .popUp_rule_middle{
+       background: $bgColor;
+       width: 330px;
+       height: 450px;
+       margin: auto;
+       border-radius: 5px;
+    }
+    .content_text{
+        text-align: left;
+        overflow-y: auto;
+        color: $contntColor;
+        width: 290px;
+        height: 320px;
+        margin: auto;
+        line-height: 2;
+        -webkit-overflow-scrolling: touch;
+    }
+    .close{
+        margin:18px auto;
+        width: 100px;
+        background: #fff;
+        text-align: center;
+        height: 40px;
+        line-height: 40px;
+        border-radius: 5px;
+        div{
+            margin-top: -3px;
+        }
+    }
+}
+// 下拉规则
+@mixin bottom_rule($titColor,$contntColor,$bgColor,$testbg){
+    background: $bgColor;
+    h3{
+        font-size: 20px;
+        text-align: center;
+        padding-top: 20px;
+        color: $titColor;
+
+    }
+    .content_text{
+        padding-top: 10px;
+        overflow-y:auto;
+        -webkit-overflow-scrolling: touch;
+        width: 300px;
+        height: 300px;
+        margin: auto;
+        color: $contntColor;
+        p{
+            font-size: 12px;
+            line-height: 2;
+        }
+
+    }
+    .rule_btn{
+        text-align: center;
+        padding: 20px 0;
+        span{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            color: #fff;
+            transform:rotate(90deg);
+        }
+    }
+}
+
+.bottom_rule{
+    width: 100%;
+
+}
+.three_product{
+    @include three_product((100px),true);
+}
+.two_product{
+    @include two_product(150px,true);
+}
+.wc_slide_tab{
+    @include slideTab(320px,120px , #454545, true);
+}
+.slide_odd_row{
+    @include slide_odd_row(100%,120px,90px,#454545,true);
+}
+.slide_even_row{
+    @include slide_even_row(100%,120px,90px,#454545,true);
+}
+.tab_div{
+
+}
+.popUp_wrap{
+    width: 375px;
+    height: 667px;
+    background: blue;
+    position: relative;
+    margin: auto;
+    .popUp_rule{
+        @include popUp_rule(#fff,#fff,#454545,true);
+    }
+}
+.bottom_rule{
+ @include bottom_rule(#fff,#fff,#454545,true);
+}
